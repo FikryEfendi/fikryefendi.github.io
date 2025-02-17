@@ -13,14 +13,26 @@
             margin: 0;
             padding: 0;
         }
-        nav {
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             background-color: #0a0;
-            padding: 10px;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 20px;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
             font-size: 18px;
         }
         nav a:hover {
@@ -29,17 +41,53 @@
         .container {
             margin-top: 50px;
         }
+        .content {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 10px;
+            background-color: #0a0;
+            color: #fff;
+        }
     </style>
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.content').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
 </head>
 <body>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-    </nav>
-    <div class="container" id="home">
-        <h1>Website masih sedang dikerjakan</h1>
-        <p>Mohon menunggu update selanjutnya.</p>
+    <header>
+        <div class="logo">Fikry</div>
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('about')">About</a>
+            <a href="#" onclick="showPage('contact')">Contact</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="home" class="content active">
+            <h1>Website masih sedang dikerjakan</h1>
+            <p>Mohon menunggu update selanjutnya.</p>
+        </div>
+        <div id="about" class="content">
+            <h1>Tentang Saya</h1>
+            <p>Halo, saya Fikry Efendi. Saya adalah seorang mahasiswa teknik informatika yang sedang belajar pembuatan website.</p>
+        </div>
+        <div id="contact" class="content">
+            <h1>Kontak Saya</h1>
+            <p>Instagram: <a href="https://instagram.com/fikry.ef">@fikry.ef</a></p>
+            <p>Email: fikry.efendi2336@gamil.com</p>
+            <p>Nomor Telepon: +62-856-6870-3124</p>
+        </div>
     </div>
+    <footer>
+        &copy; 2025 Fikry. All rights reserved.
+    </footer>
 </body>
 </html>
