@@ -11,7 +11,7 @@
             color: #ffffff;
             margin: 0;
             padding: 0;
-            background-image: url('download (2).jpg'); /* Ganti dengan nama file gambar Anda */
+            background-image: url('C:\Users\fikry\Downloads\Beautiful Desktop Landscape Anime Wallpaper Hd wallpaper _ Ninja wallpaper, Anime scenery wallpaper, Hd anime wallpapers'); /* Ganti dengan nama file gambar Anda */
             background-size: cover;
             background-position: center;
         }
@@ -25,18 +25,16 @@
         }
         nav {
             position: fixed;
-            top: 80px;
-            left: 20px;
-            display: flex;
-            flex-direction: column;
+            top: 0;
+            width: 100%;
             background-color: rgba(51, 51, 51, 0.8);
-            padding: 10px;
-            border-radius: 5px;
+            padding: 10px 0;
+            text-align: center;
         }
         nav a {
             color: #ffffff;
             text-decoration: none;
-            margin: 10px 0;
+            margin: 0 15px;
             font-size: 1.2em;
         }
         nav a:hover {
@@ -58,9 +56,17 @@
             from { width: 0 }
             to { width: 100% }
         }
-        .social-links {
+        section {
+            padding: 50px 20px;
             text-align: center;
-            margin-top: 20px;
+        }
+        .about, .portfolio, .contact {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
         }
         .social-links a {
             margin: 0 10px;
@@ -69,14 +75,6 @@
         }
         .social-links a:hover {
             color: orange;
-        }
-        .about {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: justify;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
         }
     </style>
 </head>
@@ -88,17 +86,30 @@
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
     </nav>
-    <header>
+    <header id="home">
         <h1>Saya mahasiswa teknik informatika</h1>
     </header>
-    <div class="social-links">
-        <a href="https://www.instagram.com/fikry.ef/" target="_blank">Instagram</a>
-        <a href="mailto:fikry.efendi2336@gmail.com">Email</a>
-        <a href="https://wa.me/6285668703124" target="_blank">WhatsApp</a>
-    </div>
     <section id="about" class="about">
         <h2>About Me</h2>
         <p>Halo, saya Muhammad Fikry Efendi. Saya lahir di Pekanbaru dan saat ini sedang menempuh pendidikan sebagai mahasiswa Teknik Informatika di Universitas Riau angkatan 24. Saya memiliki minat yang besar dalam pengembangan web dan sedang belajar mendesain website untuk mengupload portofolio saya. Saya selalu bersemangat untuk mempelajari hal-hal baru dan mengembangkan keterampilan saya dalam bidang teknologi informasi.</p>
+    </section>
+    <section id="portfolio" class="portfolio">
+        <h2>Portfolio</h2>
+        <p>Berikut adalah beberapa proyek yang telah saya kerjakan:</p>
+        <ul>
+            <li>Proyek 1: Desain Website Portofolio</li>
+            <li>Proyek 2: Aplikasi Manajemen Tugas</li>
+            <li>Proyek 3: Sistem Informasi Akademik</li>
+        </ul>
+    </section>
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>Anda dapat menghubungi saya melalui:</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/fikry.ef/" target="_blank">Instagram</a>
+            <a href="mailto:fikry.efendi2336@gmail.com">Email</a>
+            <a href="https://wa.me/6285668703124" target="_blank">WhatsApp</a>
+        </div>
     </section>
 </body>
 </html>
