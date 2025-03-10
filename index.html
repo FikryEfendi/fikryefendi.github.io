@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fikry Efendi - Portfolio</title>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,7 +15,7 @@
             color: #ffffff;
             margin: 0;
             padding: 0;
-            background-image: url('chuuya.jpg'); /* Menggunakan gambar yang diunggah */
+            background-image: url('dazai.png'); /* Menggunakan gambar yang diunggah */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -25,9 +29,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            z-index: 1000;
         }
         .logo {
-            font-size: 1.5em;
+            font-size: 1.3em;
             font-weight: bold;
             color: orange;
         }
@@ -38,7 +43,7 @@
             color: #ffffff;
             text-decoration: none;
             margin: 0 15px;
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
         .nav-links a:hover {
             color: orange;
@@ -47,17 +52,12 @@
             text-align: center;
             padding: 150px 0;
         }
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-            animation: typing 3s steps(30, end);
-            overflow: hidden;
+        .typing {
+            font-size: 2em;
             white-space: nowrap;
+            overflow: hidden;
             border-right: .15em solid orange;
-        }
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+            display: inline-block;
         }
         section {
             padding: 50px 20px;
@@ -65,16 +65,32 @@
         }
         .about, .project, .contact {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
             text-align: justify;
             background-color: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
             padding: 20px;
         }
+        h2 {
+            text-align: center;
+            color: orange;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
         .social-links a {
-            margin: 0 10px;
-            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.2em;
             color: #ffffff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-links a i {
+            font-size: 1.5em;
         }
         .social-links a:hover {
             color: orange;
@@ -91,27 +107,59 @@
             <a href="#contact">Contact</a>
         </div>
     </nav>
+    
     <header id="home">
-        <h1>Saya mahasiswa teknik informatika</h1>
+        <h1><span id="text" class="typing"></span></h1>
     </header>
+
     <section id="about" class="about">
         <h2>About Me</h2>
         <p>Halo, saya Muhammad Fikry Efendi. Saya lahir di Pekanbaru dan saat ini sedang menempuh pendidikan sebagai mahasiswa Teknik Informatika di Universitas Riau angkatan 24. Saya memiliki minat yang besar dalam pengembangan web dan sedang belajar mendesain website untuk mengupload portofolio saya. Saya selalu bersemangat untuk mempelajari hal-hal baru dan mengembangkan keterampilan saya dalam bidang teknologi informasi.</p>
     </section>
+
     <section id="project" class="project">
         <h2>Project</h2>
-        <p>Projek saya segera menyusul...:</p>
+        <p>Projek saya segera menyusul...</p>
         <ul>
+            <li>Project 1 - Coming Soon</li>
+            <li>Project 2 - Coming Soon</li>
         </ul>
     </section>
+
     <section id="contact" class="contact">
         <h2>Contact</h2>
         <p>Anda dapat menghubungi saya melalui:</p>
         <div class="social-links">
-            <a href="https://www.instagram.com/fikry.ef/" target="_blank">Instagram</a>
-            <a href="mailto:fikry.efendi2336@gmail.com">Email</a>
-            <a href="https://wa.me/6285668703124" target="_blank">WhatsApp</a>
+            <a href="https://www.instagram.com/fikry.ef/" target="_blank">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="mailto:fikry.efendi2336@gmail.com">
+                <i class="fa-solid fa-envelope"></i> Email
+            </a>
+            <a href="https://wa.me/6285668703124" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const textElement = document.getElementById("text");
+            const text = "Saya mahasiswa teknik informatika";
+            let index = 0;
+
+            function typeEffect() {
+                if (index < text.length) {
+                    textElement.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeEffect, 100);
+                } else {
+                    textElement.style.borderRight = "none";
+                }
+            }
+
+            typeEffect();
+        });
+    </script>
 </body>
 </html>
