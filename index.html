@@ -3,72 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Fikry Efendi - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
             font-family: Arial, sans-serif;
-            background-color: #666;
-            color: #a1ff00;
             text-align: center;
-            margin: 0;
+        }
+        nav ul {
+            list-style: none;
             padding: 0;
         }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #777;
-            padding: 20px 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
         }
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #a1ff00;
-            font-family: 'Arial Black', sans-serif;
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
         }
-        nav {
-            display: flex;
-            gap: 30px;
+        .profile img {
+            width: 150px;
+            border-radius: 50%;
+            border: 3px solid white;
         }
-        nav a {
-            color: #a1ff00;
+        h1 {
+            font-size: 36px;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 18px;
+        }
+        ul {
+            padding: 0;
+        }
+        ul li {
+            list-style: none;
+            margin: 10px 0;
+        }
+        ul li a {
+            color: cyan;
             text-decoration: none;
             font-size: 20px;
-            font-weight: bold;
-            transition: color 0.3s ease;
         }
-        nav a:hover {
-            color: #d4ff78;
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
-        .container {
-            margin-top: 100px;
-            min-height: 140vh;
-        }
-        footer {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #777;
-            color: #a1ff00;
-            font-weight: bold;
+        #typing-text {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid cyan;
+            width: 0;
+            animation: typing 3s steps(30, end) forwards;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">fikry.ef</div>
         <nav>
-            <a href="home.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
-    <div class="container">
-        <h1>Selamat Datang di Website Saya</h1>
-        <p>Website masih sedang dikerjakan, mohon menunggu update selanjutnya.</p>
-    </div>
-    <footer>
-        &copy; 2025 fikry.ef. All rights reserved.
-    </footer>
+    <section id="home">
+        <div class="profile">
+            <img src="profile.jpg" alt="Fikry Efendi">
+            <h1>Fikry Efendi</h1>
+            <p id="typing-text">Saya mahasiswa teknik informatika</p>
+        </div>
+    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Saya Muhammad Fikry Efendi, lahir di Pekanbaru. Saya mahasiswa Teknik Informatika Universitas Riau angkatan 24. Saat ini, saya sedang belajar mendesain website untuk mengupload portofolio saya.</p>
+    </section>
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <p>Proyek-proyek saya akan ditampilkan di sini.</p>
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <ul>
+            <li><a href="https://www.instagram.com/fikry.ef/">Instagram</a></li>
+            <li><a href="mailto:fikry.efendi2336@gmail.com">Email</a></li>
+            <li><a href="https://wa.me/085668703124">WhatsApp</a></li>
+        </ul>
+    </section>
 </body>
 </html>
