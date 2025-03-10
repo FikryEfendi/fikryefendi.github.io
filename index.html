@@ -1,50 +1,90 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Fikry Efendi</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Fikry Efendi - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            background-image: url('itachi-background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            animation: typing 3s steps(30, end);
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid orange;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+        nav a:hover {
+            color: orange;
+        }
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .social-links a:hover {
+            color: orange;
+        }
+        .about {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="logo">Fikry Efendi</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Fikry Efendi</h1>
+        <p>Saya mahasiswa teknik informatika</p>
     </header>
-
-    <section id="home" class="container">
-        <div class="profile">
-            <img src="profile.jpg" alt="Profile Picture">
-            <h1 class="typing">Hello, I'm Fikry Efendi</h1>
-        </div>
-
-        <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">Email</a>
-            <a href="#">WhatsApp</a>
-        </div>
-    </section>
-
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="social-links">
+        <a href="https://www.instagram.com/fikry.ef/" target="_blank">Instagram</a>
+        <a href="mailto:fikry.efendi2336@gmail.com">Email</a>
+        <a href="https://wa.me/6285668703124" target="_blank">WhatsApp</a>
+    </div>
     <section id="about" class="about">
         <h2>About Me</h2>
-        <p>I am a passionate developer who loves creating modern and elegant web designs.</p>
-    </section>
-
-    <section id="projects" class="projects">
-        <h2>My Projects</h2>
-        <p>Coming soon...</p>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <p>Email: fikry@example.com</p>
+        <p>Halo, saya Muhammad Fikry Efendi. Saya lahir di Pekanbaru dan saat ini sedang menempuh pendidikan sebagai mahasiswa Teknik Informatika di Universitas Riau angkatan 24. Saya memiliki minat yang besar dalam pengembangan web dan sedang belajar mendesain website untuk mengupload portofolio saya. Saya selalu bersemangat untuk mempelajari hal-hal baru dan mengembangkan keterampilan saya dalam bidang teknologi informasi.</p>
     </section>
 </body>
 </html>
