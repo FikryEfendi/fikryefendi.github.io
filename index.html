@@ -15,43 +15,52 @@
             color: #ffffff;
             margin: 0;
             padding: 0;
-            background-image: url('dazai.png'); /* Menggunakan gambar yang diunggah */
+            background-image: url('dazai.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
+
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(51, 51, 51, 0.8);
+            background-color: rgba(51, 51, 51, 0.85);
             padding: 10px 20px;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             z-index: 1000;
         }
+
         .logo {
             font-size: 1.3em;
             font-weight: bold;
             color: orange;
         }
+
         .nav-links {
-            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
+
         .nav-links a {
             color: #ffffff;
             text-decoration: none;
-            margin: 0 15px;
             font-size: 1.1em;
         }
+
         .nav-links a:hover {
             color: orange;
         }
+
         header {
             text-align: center;
-            padding: 150px 0;
+            padding: 150px 20px 100px;
         }
+
         .typing {
             font-size: 2em;
             white-space: nowrap;
@@ -59,10 +68,12 @@
             border-right: .15em solid orange;
             display: inline-block;
         }
+
         section {
             padding: 50px 20px;
             text-align: center;
         }
+
         .about, .project, .contact {
             max-width: 800px;
             margin: 20px auto;
@@ -71,15 +82,19 @@
             border-radius: 10px;
             padding: 20px;
         }
+
         h2 {
             text-align: center;
             color: orange;
         }
+
         .social-links {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
+
         .social-links a {
             display: flex;
             align-items: center;
@@ -89,11 +104,62 @@
             text-decoration: none;
             transition: 0.3s;
         }
+
         .social-links a i {
             font-size: 1.5em;
         }
+
         .social-links a:hover {
             color: orange;
+        }
+
+        /* === Responsive Design === */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .nav-links a {
+                margin: 5px 0;
+            }
+
+            header {
+                padding: 120px 20px 60px;
+            }
+
+            .typing {
+                font-size: 1.5em;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .typing {
+                font-size: 1.2em;
+            }
+
+            .nav-links a {
+                font-size: 1em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            .social-links a {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
