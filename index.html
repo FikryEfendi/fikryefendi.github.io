@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fikry Efendi - Portfolio</title>
-  
+
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -19,32 +19,43 @@
       font-family: Arial, sans-serif;
       background-color: #1a1a1a;
       color: #ffffff;
-      margin: 0;
-      padding: 0;
       background-image: url('dazai.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      height: 100vh;
       overflow-x: hidden;
     }
 
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
       background-color: rgba(51, 51, 51, 0.85);
       padding: 10px 20px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: flex-start;
+      position: fixed;
+      width: 100%;
       z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logo {
       font-size: 1.3em;
       font-weight: bold;
       color: orange;
+    }
+
+    .menu-icon {
+      font-size: 1.5em;
+      cursor: pointer;
+      color: white;
+      display: none;
     }
 
     .nav-links {
@@ -62,38 +73,33 @@
       color: orange;
     }
 
-    .menu-icon {
-      display: none;
-      font-size: 1.5em;
-      cursor: pointer;
-      color: white;
-    }
-
+    /* Mobile style */
     @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+
       .nav-links {
         display: none;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 10px;
-        border-radius: 8px;
-        width: 200px;
+        width: 100%;
+        margin-top: 10px;
       }
 
-      .nav-links.active {
+      nav.expanded .nav-links {
         display: flex;
       }
 
-      .menu-icon {
-        display: block;
+      .nav-links a {
+        padding: 8px 0;
+        border-bottom: 1px solid #444;
+        width: 100%;
       }
     }
 
     header {
       text-align: center;
-      padding: 150px 20px 100px;
+      padding: 140px 20px 100px;
     }
 
     header h1 {
@@ -147,10 +153,12 @@
 </head>
 <body>
 
-  <nav>
-    <div class="logo">Fikry</div>
-    <div class="menu-icon" onclick="toggleMenu()">
-      <i class="fa fa-bars"></i>
+  <nav id="navbar">
+    <div class="nav-top">
+      <div class="logo">Fikry</div>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </div>
     </div>
     <div class="nav-links" id="navLinks">
       <a href="#home">Home</a>
@@ -196,8 +204,8 @@
 
   <script>
     function toggleMenu() {
-      const nav = document.getElementById("navLinks");
-      nav.classList.toggle("active");
+      const nav = document.getElementById("navbar");
+      nav.classList.toggle("expanded");
     }
   </script>
 
