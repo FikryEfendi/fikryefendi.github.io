@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fikry Efendi - Portfolio</title>
-
-  <!-- Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
   <style>
     * {
       margin: 0;
@@ -18,118 +18,86 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #1a1a1a;
-      color: #ffffff;
-      background-image: url('dazai.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      color: #fff;
       overflow-x: hidden;
     }
 
     nav {
-      background-color: rgba(51, 51, 51, 0.85);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(51, 51, 51, 0.9);
       padding: 10px 20px;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-
-    .nav-top {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
     }
 
     .logo {
-      font-size: 1.3em;
+      font-size: 1.4em;
       font-weight: bold;
       color: orange;
     }
 
-    .menu-icon {
+    .menu-toggle {
+      display: none;
       font-size: 1.5em;
       cursor: pointer;
-      color: white;
-      display: none;
+      color: #fff;
+      transition: transform 0.3s ease;
     }
 
     .nav-links {
       display: flex;
-      gap: 15px;
+      gap: 20px;
+      transition: transform 0.3s ease;
     }
 
     .nav-links a {
-      color: #ffffff;
+      color: #fff;
       text-decoration: none;
       font-size: 1.1em;
+      transition: color 0.3s ease;
     }
 
     .nav-links a:hover {
       color: orange;
     }
 
-    /* Mobile style */
-    @media (max-width: 768px) {
-      .menu-icon {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
-      }
-
-      nav.expanded .nav-links {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 8px 0;
-        border-bottom: 1px solid #444;
-        width: 100%;
-      }
-    }
-
     header {
       text-align: center;
-      padding: 140px 20px 100px;
-    }
-
-    header h1 {
-      font-size: 2em;
+      padding: 130px 20px 60px;
     }
 
     section {
       padding: 50px 20px;
-      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .about, .project, .contact {
-      max-width: 900px;
-      margin: 20px auto;
-      text-align: justify;
+    .about,
+    .project,
+    .contact {
       background-color: rgba(0, 0, 0, 0.7);
       border-radius: 10px;
       padding: 20px;
+      text-align: justify;
+      margin-bottom: 20px;
     }
 
     h2 {
       text-align: center;
       color: orange;
+      margin-bottom: 15px;
     }
 
     .social-links {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .social-links a {
@@ -137,30 +105,49 @@
       align-items: center;
       gap: 8px;
       font-size: 1.2em;
-      color: #ffffff;
+      color: #fff;
       text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .social-links a i {
-      font-size: 1.5em;
     }
 
     .social-links a:hover {
       color: orange;
     }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+        width: 100%;
+        transform: translateY(-100%); /* Menyembunyikan menu */
+      }
+
+      .nav-links.active {
+        display: flex;
+        transform: translateY(0); /* Menu muncul dari atas */
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
-
-  <nav id="navbar">
-    <div class="nav-top">
+  <nav>
+    <div class="nav-top" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
       <div class="logo">Fikry</div>
-      <div class="menu-icon" onclick="toggleMenu()">
-        <i class="fa fa-bars"></i>
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
       </div>
     </div>
-    <div class="nav-links" id="navLinks">
+    <div class="nav-links" id="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#project">Project</a>
@@ -174,7 +161,14 @@
 
   <section id="about" class="about">
     <h2>About Me</h2>
-    <p>Halo, saya Muhammad Fikry Efendi. Saya lahir di Pekanbaru dan saat ini sedang menempuh pendidikan sebagai mahasiswa Teknik Informatika di Universitas Riau angkatan 24. Saya memiliki minat yang besar dalam pengembangan web dan sedang belajar mendesain website untuk mengupload portofolio saya. Saya selalu bersemangat untuk mempelajari hal-hal baru dan mengembangkan keterampilan saya dalam bidang teknologi informasi.</p>
+    <p>
+      Halo, saya Muhammad Fikry Efendi. Saya lahir di Pekanbaru dan saat ini
+      sedang menempuh pendidikan sebagai mahasiswa Teknik Informatika di
+      Universitas Riau angkatan 24. Saya memiliki minat yang besar dalam
+      pengembangan web dan sedang belajar mendesain website untuk mengupload
+      portofolio saya. Saya selalu bersemangat untuk mempelajari hal-hal baru
+      dan mengembangkan keterampilan saya dalam bidang teknologi informasi.
+    </p>
   </section>
 
   <section id="project" class="project">
@@ -203,11 +197,12 @@
   </section>
 
   <script>
-    function toggleMenu() {
-      const nav = document.getElementById("navbar");
-      nav.classList.toggle("expanded");
-    }
-  </script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
 
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
 </body>
 </html>
