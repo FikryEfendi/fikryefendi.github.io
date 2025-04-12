@@ -87,14 +87,6 @@
       padding: 150px 20px 100px;
     }
 
-    .typing {
-      font-size: 2em;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: .15em solid orange;
-      display: inline-block;
-    }
-
     section {
       padding: 50px 20px;
       text-align: center;
@@ -156,7 +148,7 @@
   </nav>
 
   <header id="home">
-    <h1><span id="text" class="typing"></span></h1>
+    <h1>Saya mahasiswa teknik informatika</h1> <!-- Menjadi teks biasa tanpa animasi -->
   </header>
 
   <section id="about" class="about">
@@ -190,28 +182,11 @@
   </section>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const textElement = document.getElementById("text");
-      const text = "Saya mahasiswa teknik informatika";
-      let index = 0;
-
-      function typeEffect() {
-        if (index < text.length) {
-          textElement.innerHTML += text.charAt(index);
-          index++;
-          setTimeout(typeEffect, 100);
-        } else {
-          textElement.style.borderRight = "none";
-        }
-      }
-
-      typeEffect();
-    });
-
     function toggleMenu() {
       const nav = document.getElementById("navLinks");
       nav.classList.toggle("active");
     }
   </script>
+
 </body>
 </html>
