@@ -80,6 +80,21 @@
       margin: 0 auto;
     }
 
+    /* Tambahan jarak antar section */
+    .about {
+      margin-top: 100px;
+    }
+
+    .project {
+      margin-top: 100px;
+    }
+
+    .contact {
+      margin-top: 100px;
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+    }
+
     .about,
     .project,
     .contact {
@@ -180,12 +195,12 @@
         flex-direction: column;
         margin-top: 10px;
         width: 100%;
-        transform: translateY(-100%); /* Menyembunyikan menu */
+        transform: translateY(-100%);
       }
 
       .nav-links.active {
         display: flex;
-        transform: translateY(0); /* Menu muncul dari atas */
+        transform: translateY(0);
       }
 
       nav {
@@ -197,12 +212,12 @@
     /* FOOTER */
     footer {
       text-align: center;
-      padding: 10px 0; /* Menurunkan padding agar footer lebih kecil */
+      padding: 10px 0;
       background-color: rgba(51, 51, 51, 0.9);
       position: fixed;
       bottom: 0;
       width: 100%;
-      font-size: 0.8em; /* Mengurangi ukuran font */
+      font-size: 0.8em;
       color: #fff;
     }
 
@@ -213,11 +228,6 @@
 
     footer a:hover {
       color: orange;
-    }
-
-    /* Menambah margin bawah pada section terakhir agar tidak tertutup footer */
-    section.contact {
-      margin-bottom: 60px;
     }
   </style>
 </head>
@@ -238,7 +248,7 @@
   </nav>
 
   <header id="home">
-    <h1>Saya mahasiswa teknik informatika</h1>
+    <h1>hello everyone</h1>
   </header>
 
   <section id="about" class="about">
@@ -264,7 +274,7 @@
           <a href="project1.html">Detail Project</a>
         </div>
       </div>
-  
+
       <div class="project-item">
         <img src="https://via.placeholder.com/500" alt="Project 2" />
         <div class="project-info">
@@ -273,7 +283,7 @@
           <a href="#">Detail Project</a>
         </div>
       </div>
-  
+
       <div class="project-item">
         <img src="https://via.placeholder.com/500" alt="Project 3" />
         <div class="project-info">
@@ -284,7 +294,6 @@
       </div>
     </div>
   </section>
-  
 
   <section id="contact" class="contact">
     <h2>Contact</h2>

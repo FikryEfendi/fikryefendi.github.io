@@ -2,34 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UTS Sistem Multimedia - Detail</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UTS Sistem Multimedia</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(51, 51, 51, 0.9);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: orange;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: orange;
+    }
+
+    header {
+      text-align: center;
+      padding: 130px 20px 60px;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .project-detail {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: justify;
+    }
+
+    h2 {
+      text-align: center;
+      color: orange;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      background-color: rgba(51, 51, 51, 0.9);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.8em;
+      color: #fff;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: orange;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <nav>
+    <div class="logo">Fikry</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+    </div>
+  </nav>
+
   <header>
-    <nav>
-      <div class="logo">Fikry</div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="#about">About</a>
-        <a href="#project">Project</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+    <h1>UTS Sistem Multimedia</h1>
   </header>
 
-  <section>
-    <h1>UTS SISTEM MULTIMEDIA - Detail</h1>
-    <p>Ini adalah laporan lengkap dari tugas UTS matakuliah Sistem Multimedia yang saya kerjakan...</p>
-    <p>Di dalam laporan ini, saya menggunakan berbagai teknologi multimedia, termasuk video, audio, dan animasi untuk meningkatkan pemahaman materi.</p>
-    <p>Link ke berbagai sumber yang digunakan dalam proyek:</p>
-    <ul>
-      <li><a href="https://www.example.com">Sumber 1</a></li>
-      <li><a href="https://www.example.com">Sumber 2</a></li>
+  <section class="project-detail">
+    <h2>Detail Project</h2>
+    <p>
+      Ini adalah halaman khusus untuk menampilkan detail tugas UTS mata kuliah Sistem Multimedia. Kamu bisa menambahkan konten seperti:
+    </p>
+    <ul style="margin: 20px 0; padding-left: 20px;">
+      <li>Latar belakang tugas</li>
+      <li>Deskripsi proyek multimedia</li>
+      <li>Cuplikan kode atau tampilan aplikasi</li>
+      <li>Link download atau PDF laporan</li>
     </ul>
-    <p>Anda dapat melihat dokumentasi lengkapnya di bawah:</p>
-    <!-- Tambahkan elemen lainnya yang menjelaskan proyek ini -->
+    <p>
+      Kamu bisa terus mengembangkan halaman ini dengan desain presentasi yang menarik. Bila ingin menampilkan file PDF langsung, kamu juga bisa menyematkannya di halaman ini.
+    </p>
   </section>
 
   <footer>
