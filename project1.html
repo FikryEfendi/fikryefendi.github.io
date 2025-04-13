@@ -23,6 +23,7 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      padding-bottom: 60px;
     }
 
     nav {
@@ -83,14 +84,42 @@
       margin-bottom: 15px;
     }
 
+    iframe {
+      width: 100%;
+      height: 480px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .pdf-link {
+      display: block;
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    .pdf-link a {
+      display: inline-block;
+      background-color: orange;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .pdf-link a:hover {
+      background-color: #ffaa00;
+    }
+
     footer {
       text-align: center;
-      padding: 10px 0;
-      background-color: rgba(51, 51, 51, 0.9);
+      padding: 15px 10px;
+      background-color: rgba(51, 51, 51, 0.95);
       position: fixed;
       bottom: 0;
       width: 100%;
-      font-size: 0.8em;
+      font-size: 0.85em;
       color: #fff;
     }
 
@@ -127,17 +156,19 @@
   <section class="project-detail">
     <h2>Detail Project</h2>
     <p>
-      Ini adalah halaman khusus untuk menampilkan detail tugas UTS mata kuliah Sistem Multimedia. Kamu bisa menambahkan konten seperti:
+      Halaman ini merupakan tugas UTS untuk mata kuliah Sistem Multimedia. Di dalam laporan ini dijelaskan berbagai elemen penting dalam multimedia, seperti penggunaan teks, pemilihan font, gambar sebagai visual utama, serta integrasi audio, video, dan animasi untuk memperkaya konten digital.
     </p>
-    <ul style="margin: 20px 0; padding-left: 20px;">
-      <li>Latar belakang tugas</li>
-      <li>Deskripsi proyek multimedia</li>
-      <li>Cuplikan kode atau tampilan aplikasi</li>
-      <li>Link download atau PDF laporan</li>
-    </ul>
-    <p>
-      Kamu bisa terus mengembangkan halaman ini dengan desain presentasi yang menarik. Bila ingin menampilkan file PDF langsung, kamu juga bisa menyematkannya di halaman ini.
-    </p>
+
+    <h2>Laporan PDF</h2>
+    <p>Silakan lihat laporan UTS melalui pratinjau di bawah ini atau buka di tab baru:</p>
+
+    <div class="pdf-link">
+      <a href="Muhammad Fikry Efendi_LAPORAN UTS SISTEM MULTIMEDIA.pdf" target="_blank">
+        Lihat PDF di Tab Baru
+      </a>
+    </div>
+
+    <iframe src="Muhammad Fikry Efendi_LAPORAN UTS SISTEM MULTIMEDIA.pdf"></iframe>
   </section>
 
   <footer>
