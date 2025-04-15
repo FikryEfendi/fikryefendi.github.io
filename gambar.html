@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jenis Format Gambar dalam Multimedia | Fikry</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -54,6 +55,13 @@
 
     .nav-links a:hover {
       color: orange;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #fff;
     }
 
     header {
@@ -127,18 +135,27 @@
     }
 
     @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-  }
+      .menu-toggle {
+        display: block;
+      }
 
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin-top: 10px;
-  }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+        width: 100%;
+        transform: translateY(-100%);
+      }
+
+      .nav-links.active {
+        display: flex;
+        transform: translateY(0);
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
   header {
     padding: 100px 15px 40px;
@@ -179,8 +196,14 @@
 </head>
 <body>
     <nav>
-        <div class="logo">Fikry</div>
-        <div class="nav-links">
+        <div class="nav-top" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+          <div class="logo">Fikry</div>
+          <div class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i> <!-- Ikon garis tiga -->
+          </div>
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="project1.html">Project</a>
           <a href="font.html">Font</a>
           <a href="gambar.html">Gambar</a>
           <a href="audio.html">Audio</a>
@@ -272,5 +295,15 @@
   <footer>
     <p>&copy; 2025 Muhammad Fikry Efendi. All rights reserved.</p>
   </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+  
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+  
 </body>
 </html>

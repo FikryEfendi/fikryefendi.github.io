@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jenis Audio dalam Multimedia | Fikry</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding-bottom: 60px;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(51, 51, 51, 0.9);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: orange;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: orange;
+    }
+
+    header {
+      text-align: center;
+      padding: 130px 20px 60px;
+    }
+
+    h1 {
+      color: orange;
+      margin-bottom: 20px;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+    }
+
+    section p {
+      margin-bottom: 30px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    h2 {
+      color: orange;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .audio-sample {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 12px 20px;
+      margin: 12px 0;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .audio-sample audio {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      background-color: rgba(51, 51, 51, 0.95);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.85em;
+      color: #fff;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: orange;
+    }
+
+    .audio-sample a:hover audio {
+      opacity: 0.8;
+      transform: scale(1.02);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .menu-toggle {
+    display: none;
+    }
+
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+        width: 100%;
+        transform: translateY(-100%);
+      }
+
+      .nav-links.active {
+        display: flex;
+        transform: translateY(0);
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header {
+        padding: 100px 15px 40px;
+      }
+
+      section {
+        padding: 20px 15px;
+      }
+
+      .audio-sample {
+        padding: 10px;
+      }
+
+      .audio-sample audio {
+        max-width: 100%;
+        height: auto;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      h3 {
+        font-size: 1.1em;
+      }
+
+      footer {
+        font-size: 0.75em;
+        padding: 10px 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-top" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+          <div class="logo">Fikry</div>
+          <div class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i> <!-- Ikon garis tiga -->
+          </div>
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="project1.html">Project</a>
+          <a href="font.html">Font</a>
+          <a href="gambar.html">Gambar</a>
+          <a href="audio.html">Audio</a>
+          <a href="video.html">Video</a>
+          <a href="animasi.html">Animasi</a>
+        </div>
+      </nav>
+
+  <header>
+    <h1>Jenis Audio dalam Multimedia</h1>
+  </header>
+
+  <section>
+    <p>
+      Audio adalah elemen penting dalam multimedia yang memungkinkan penggunanya untuk merasakan informasi secara auditori. Format audio yang berbeda memiliki kualitas dan kompresi yang berbeda, sehingga memilih format yang tepat sangat penting untuk keperluan multimedia.
+    </p>
+
+    <h2>Contoh Format Audio</h2>
+
+    <div class="audio-sample">
+        <h3>Format MP3</h3>
+        <audio controls>
+          <source src="wave to earth - seasons.mp3" type="audio/mp3">
+          Browser tidak mendukung pemutar audio.
+        </audio>
+        <p>Contoh audio dengan format MP3 (format audio paling populer).</p>
+        <a href="wave to earth - seasons.mp3" download style="color: orange; display: inline-block; margin-top: 10px;">
+          Download format MP3
+        </a>
+      </div>
+      
+      <div class="audio-sample">
+        <h3>Format WAV</h3>
+        <audio controls>
+          <source src="wav.wav" type="audio/wav">
+          Browser tidak mendukung pemutar audio.
+        </audio>
+        <p>Contoh audio dengan format WAV (format audio dengan kualitas tinggi, ukuran besar).</p>
+        <a href="wav.wav" download style="color: orange; display: inline-block; margin-top: 10px;">
+          Download format WAV
+        </a>
+      </div>
+      
+      <div class="audio-sample">
+        <h3>Format AAC</h3>
+        <audio controls>
+          <source src="aac.aac" type="audio/aac">
+          Browser tidak mendukung pemutar audio.
+        </audio>
+        <p>Contoh audio dengan format AAC (digunakan di banyak perangkat Apple).</p>
+        <a href="aac.aac" download style="color: orange; display: inline-block; margin-top: 10px;">
+          Download format AAC
+        </a>
+      </div>
+      
+      <div class="audio-sample">
+        <h3>Format FLAC</h3>
+        <audio controls>
+          <source src="flac.flac" type="audio/flac">
+          Browser tidak mendukung pemutar audio.
+        </audio>
+        <p>Contoh audio dengan format FLAC (format lossless untuk kualitas suara terbaik).</p>
+        <a href="flac.flac" download style="color: orange; display: inline-block; margin-top: 10px;">
+          Download format FLAC
+        </a>
+      </div>
+      
+      <div class="audio-sample">
+        <h3>Format OGG</h3>
+        <audio controls>
+          <source src="ogg.ogg" type="audio/ogg">
+          Browser tidak mendukung pemutar audio.
+        </audio>
+        <p>Contoh audio dengan format OGG (format terbuka dan lebih ringan dibandingkan MP3).</p>
+        <a href="ogg.ogg" download style="color: orange; display: inline-block; margin-top: 10px;">
+          Download format OGG
+        </a>
+      </div>
+      
+
+    <div class="audio-sample">
+        <h3>Format WMA</h3>
+        <audio controls>
+          <source src="wma.mp3" type="audio/mpeg">
+          Browser tidak mendukung pemutar audio.
+        </audio>
+        <p>Contoh audio dengan format WMA (asli: .wma | fallback: .mp3).</p>
+        <a href="wma.wma" download style="color: orange; display: inline-block; margin-top: 10px;">
+          Download format asli (WMA)
+        </a>
+      </div>
+
+      <div class="audio-sample">
+        <h3>Format AIFF</h3>
+        <audio controls>
+          <source src="aiff.mp3" type="audio/mpeg">
+          Browser tidak mendukung pemutar audio.
+        </audio>
+        <p>Contoh audio dengan format AIFF (asli: .aiff | fallback: .mp3).</p>
+        <a href="aiff.aiff" download style="color: orange; display: inline-block; margin-top: 10px;">
+          Download format asli (AIFF)
+        </a>
+      </div>
+      
+      <div class="audio-sample">
+        <h3>Format ALAC</h3>
+        <audio controls>
+          <source src="alac.mp3" type="audio/mpeg">
+          Browser tidak mendukung pemutar audio.
+        </audio>
+        <p>Contoh audio dengan format ALAC (asli: .m4a | fallback: .mp3).</p>
+        <a href="alac.m4a" download style="color: orange; display: inline-block; margin-top: 10px;">
+          Download format asli (ALAC)
+        </a>
+      </div>
+      
+      <div class="audio-sample">
+        <h3>Format OPUS</h3>
+        <audio controls>
+          <source src="opus.mp3" type="audio/mpeg">
+          Browser tidak mendukung pemutar audio.
+        </audio>
+        <p>Contoh audio dengan format OPUS (asli: .opus | fallback: .mp3).</p>
+        <a href="opus.opus" download style="color: orange; display: inline-block; margin-top: 10px;">
+          Download format asli (OPUS)
+        </a>
+      </div>
+      
+      <div class="audio-sample">
+        <h3>Format AMR</h3>
+        <audio controls>
+          <source src="amr.mp3" type="audio/mpeg">
+          Browser tidak mendukung pemutar audio.
+        </audio>
+        <p>Contoh audio dengan format AMR (asli: .amr | fallback: .mp3).</p>
+        <a href="amr.amr" download style="color: orange; display: inline-block; margin-top: 10px;">
+          Download format asli (AMR)
+        </a>
+      </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Muhammad Fikry Efendi. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+  
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
