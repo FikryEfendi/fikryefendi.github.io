@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jenis Video dalam Multimedia | Fikry</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding-bottom: 60px;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(51, 51, 51, 0.9);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: orange;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: orange;
+    }
+
+    header {
+      text-align: center;
+      padding: 130px 20px 60px;
+    }
+
+    h1 {
+      color: orange;
+      margin-bottom: 20px;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+    }
+
+    section p {
+      margin-bottom: 30px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    h2 {
+      color: orange;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .video-sample {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 12px 20px;
+      margin: 12px 0;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .video-sample video {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      background-color: rgba(51, 51, 51, 0.95);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.85em;
+      color: #fff;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: orange;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+        width: 100%;
+        transform: translateY(-100%);
+      }
+
+      .nav-links.active {
+        display: flex;
+        transform: translateY(0);
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header {
+        padding: 100px 15px 40px;
+      }
+
+      section {
+        padding: 20px 15px;
+      }
+
+      .video-sample {
+        padding: 10px;
+      }
+
+      .video-sample video {
+        max-width: 100%;
+        height: auto;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      h3 {
+        font-size: 1.1em;
+      }
+
+      footer {
+        font-size: 0.75em;
+        padding: 10px 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-top" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+          <div class="logo">Fikry</div>
+          <div class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i> <!-- Ikon garis tiga -->
+          </div>
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="project1.html">Project</a>
+          <a href="font.html">Font</a>
+          <a href="gambar.html">Gambar</a>
+          <a href="audio.html">Audio</a>
+          <a href="video.html">Video</a>
+          <a href="animasi.html">Animasi</a>
+        </div>
+      </nav>
+
+  <header>
+    <h1>Jenis Video dalam Multimedia</h1>
+  </header>
+
+  <section>
+    <p>
+      Video adalah elemen multimedia yang sangat penting untuk menyampaikan informasi secara visual dan auditori. Ada berbagai format video yang digunakan untuk berbagai kebutuhan.
+    </p>
+
+    <h2>Contoh Format Video</h2>
+
+    <div class="video-sample">
+      <h3>Format MP4</h3>
+      <video controls>
+        <source src="video1.mp4" type="video/mp4">
+        Browser tidak mendukung pemutar video.
+      </video>
+      <p>Contoh video dengan format MP4.</p>
+      <a href="video1.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">
+        Download format MP4
+      </a>
+    </div>
+
+    <div class="video-sample">
+      <h3>Format AVI</h3>
+      <video controls>
+        <source src="video2.mp4" type="video/mp4">
+        Browser tidak mendukung pemutar video.
+      </video>
+      <p>Contoh video dengan format AVI.</p>
+      <a href="video2.avi" download style="color: orange; display: inline-block; margin-top: 10px;">
+        Download format AVI
+      </a>
+    </div>
+
+    <div class="video-sample">
+      <h3>Format MKV</h3>
+      <video controls>
+        <source src="video3.mp4" type="video/mp4">
+        Browser tidak mendukung pemutar video.
+      </video>
+      <p>Contoh video dengan format MKV.</p>
+      <a href="video3.mkv" download style="color: orange; display: inline-block; margin-top: 10px;">
+        Download format MKV
+      </a>
+    </div>
+
+    <div class="video-sample">
+      <h3>Format MOV</h3>
+      <video controls>
+        <source src="video4.mp4" type="video/mp4">
+        Browser tidak mendukung pemutar video.
+      </video>
+      <p>Contoh video dengan format MOV.</p>
+      <a href="video4.mov" download style="color: orange; display: inline-block; margin-top: 10px;">
+        Download format MOV
+      </a>
+    </div>
+
+    <div class="video-sample">
+      <h3>Format FLV</h3>
+      <video controls>
+        <source src="video5.mp4" type="video/mp4">
+        Browser tidak mendukung pemutar video.
+      </video>
+      <p>Contoh video dengan format FLV.</p>
+      <a href="video5.flv" download style="color: orange; display: inline-block; margin-top: 10px;">
+        Download format FLV
+      </a>
+    </div>
+
+    <div class="video-sample">
+      <h3>Format WMV</h3>
+      <video controls>
+        <source src="video6.wmv" type="video/x-ms-wmv">
+        Browser tidak mendukung pemutar video.
+      </video>
+      <p>Contoh video dengan format WMV.</p>
+      <a href="video6.wmv" download style="color: orange; display: inline-block; margin-top: 10px;">
+        Download format WMV
+      </a>
+    </div>
+
+    <div class="video-sample">
+      <h3>Format 3GP</h3>
+      <video controls>
+        <source src="video7.3gp" type="video/3gpp">
+        Browser tidak mendukung pemutar video.
+      </video>
+      <p>Contoh video dengan format 3GP.</p>
+      <a href="video7.3gp" download style="color: orange; display: inline-block; margin-top: 10px;">
+        Download format 3GP
+      </a>
+    </div>
+
+    <div class="video-sample">
+      <h3>Format WebM</h3>
+      <video controls>
+        <source src="video8.webm" type="video/webm">
+        Browser tidak mendukung pemutar video.
+      </video>
+      <p>Contoh video dengan format WebM.</p>
+      <a href="video8.webm" download style="color: orange; display: inline-block; margin-top: 10px;">
+        Download format WebM
+      </a>
+    </div>
+
+    <div class="video-sample">
+      <h3>Format MPEG</h3>
+      <video controls>
+        <source src="video9.mpeg" type="video/mpeg">
+        Browser tidak mendukung pemutar video.
+      </video>
+      <p>Contoh video dengan format MPEG.</p>
+      <a href="video9.mpeg" download style="color: orange; display: inline-block; margin-top: 10px;">
+        Download format MPEG
+      </a>
+    </div>
+
+    <div class="video-sample">
+      <h3>Format AVCHD</h3>
+      <video controls>
+        <source src="video10.mts" type="video/avchd">
+        Browser tidak mendukung pemutar video.
+      </video>
+      <p>Contoh video dengan format AVCHD.</p>
+      <a href="video10.mts" download style="color: orange; display: inline-block; margin-top: 10px;">
+        Download format AVCHD
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Muhammad Fikry Efendi. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+  
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
