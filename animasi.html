@@ -1,330 +1,676 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jenis Animasi dalam Multimedia | Fikry</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    html {
+      scroll-behavior: smooth;
     }
-
+    
     body {
-      font-family: Arial, sans-serif;
-      color: #fff;
-      background-image: url('background.jpg');
+      font-family: 'Poppins', sans-serif;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/1080');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      padding-bottom: 60px;
-      overflow-x: hidden;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: rgba(51, 51, 51, 0.9);
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 1.4em;
-      font-weight: bold;
-      color: orange;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
       color: #fff;
-      text-decoration: none;
-      font-size: 1.1em;
-      transition: color 0.3s ease;
     }
-
-    .nav-links a:hover {
-      color: orange;
+    
+    .text-gradient {
+      background: linear-gradient(to right, #f97316, #eab308);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-
-    header {
-      text-align: center;
-      padding: 130px 20px 60px;
+    
+    .nav-link {
+      position: relative;
     }
-
-    h1 {
-      color: orange;
-      margin-bottom: 20px;
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: linear-gradient(to right, #f97316, #eab308);
+      transition: width 0.3s ease;
     }
-
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
+    
+    .nav-link:hover::after {
+      width: 100%;
     }
-
-    section p {
-      margin-bottom: 30px;
-      line-height: 1.6;
-      text-align: justify;
+    
+    .card-hover {
+      transition: all 0.3s ease;
     }
-
-    h2 {
-      color: orange;
-      text-align: center;
-      margin-bottom: 20px;
+    
+    .card-hover:hover {
+      transform: translateY(-10px);
     }
-
+    
+    .btn-gradient {
+      background: linear-gradient(to right, #f97316, #eab308);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-gradient:hover {
+      background: linear-gradient(to right, #ea580c, #ca8a04);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
     .video-sample {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 12px 20px;
-      margin: 12px 0;
-      border-radius: 6px;
-      text-align: center;
-    }
-
-    .video-sample video {
-      width: 100%;
+      background-color: rgba(31, 41, 55, 0.8);
+      padding: 20px;
+      margin-bottom: 30px;
       border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
-
-    footer {
-      text-align: center;
-      padding: 15px 10px;
-      background-color: rgba(51, 51, 51, 0.95);
-      position: fixed;
-      bottom: 0;
+    
+    .video-sample:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border-color: rgba(249, 115, 22, 0.3);
+    }
+    
+    .video-sample::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #f97316, #eab308);
+    }
+    
+    .animation-type {
+      color: #f97316;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+    
+    .format-tag {
+      background-color: rgba(249, 115, 22, 0.2);
+      color: #f97316;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    
+    .animation-description {
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #d1d5db;
+    }
+    
+    .video-preview {
       width: 100%;
-      font-size: 0.85em;
-      color: #fff;
+      margin: 15px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
-
-    footer a {
-      color: #fff;
+    
+    .video-preview video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      color: #f97316;
       text-decoration: none;
+      transition: all 0.3s ease;
     }
-
-    footer a:hover {
-      color: orange;
+    
+    .download-btn:hover {
+      color: #eab308;
+      transform: translateY(-2px);
     }
-
-    .menu-toggle {
-      display: none;
+    
+    .custom-cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #f97316;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      mix-blend-mode: difference;
+      transition: width 0.3s, height 0.3s, background-color 0.3s;
     }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        margin-top: 10px;
-        width: 100%;
-        transform: translateY(-100%);
-      }
-
-      .nav-links.active {
-        display: flex;
-        transform: translateY(0);
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      header {
-        padding: 100px 15px 40px;
-      }
-
-      section {
-        padding: 20px 15px;
-      }
-
-      .video-sample {
-        padding: 10px;
-      }
-
-      .video-sample video {
-        max-width: 100%;
-        height: auto;
-      }
-
-      h1 {
-        font-size: 1.5em;
-      }
-
-      h2 {
-        font-size: 1.3em;
-      }
-
-      h3 {
-        font-size: 1.1em;
-      }
-
-      footer {
-        font-size: 0.75em;
-        padding: 10px 5px;
-      }
+    
+    .cursor-dot {
+      width: 4px;
+      height: 4px;
+      background-color: #f97316;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: opacity 0.3s;
+    }
+    
+    .hover-target:hover ~ .custom-cursor {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(249, 115, 22, 0.1);
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
     }
   </style>
 </head>
-<body>
-  <nav>
-    <div class="nav-top" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-      <div class="logo">Fikry</div>
-      <div class="menu-toggle" id="menu-toggle">
-        <i class="fa-solid fa-bars"></i>
+<body class="text-white pb-16" x-data="{ menuOpen: false, section: 'animasi' }">
+  <!-- Custom cursor -->
+  <div class="custom-cursor hidden md:block"></div>
+  <div class="cursor-dot hidden md:block"></div>
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 transition-all duration-300" 
+       :class="{ 'bg-transparent': !menuOpen && window.pageYOffset < 100, 'bg-black bg-opacity-90 shadow-lg': menuOpen || window.pageYOffset >= 100 }"
+       @scroll.window="window.pageYOffset >= 100 ? $el.classList.add('py-2') : $el.classList.add('py-4')">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between py-4">
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="text-3xl font-bold text-gradient">Fikry</span>
+        </a>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button @click="menuOpen = !menuOpen" type="button" class="text-white focus:outline-none">
+            <svg x-show="!menuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg x-show="menuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Desktop menu -->
+        <div class="hidden md:flex md:items-center md:space-x-8">
+          <a href="project1.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Project</a>
+          <a href="font.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Font</a>
+          <a href="gambar.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Gambar</a>
+          <a href="audio.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Audio</a>
+          <a href="video.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Video</a>
+          <a href="animasi.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300 text-orange-400">Animasi</a>
+          <a href="index.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Home</a>
+        </div>
       </div>
-    </div>
-    <div class="nav-links" id="nav-links">
-      <a href="project1.html">Project</a>
-      <a href="font.html">Font</a>
-      <a href="gambar.html">Gambar</a>
-      <a href="audio.html">Audio</a>
-      <a href="video.html">Video</a>
-      <a href="animasi.html">Animasi</a>
+      
+      <!-- Mobile menu -->
+      <div x-show="menuOpen" 
+           x-transition:enter="transition ease-out duration-300"
+           x-transition:enter-start="opacity-0 transform -translate-y-4"
+           x-transition:enter-end="opacity-100 transform translate-y-0"
+           x-transition:leave="transition ease-in duration-300"
+           x-transition:leave-start="opacity-100 transform translate-y-0"
+           x-transition:leave-end="opacity-0 transform -translate-y-4"
+           class="md:hidden py-2">
+        <a href="project1.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Project</a>
+        <a href="font.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Font</a>
+        <a href="gambar.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Gambar</a>
+        <a href="audio.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Audio</a>
+        <a href="video.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Video</a>
+        <a href="animasi.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Animasi</a>
+        <a href="index.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Home</a>
+      </div>
     </div>
   </nav>
 
-  <header>
-    <h1>Jenis Animasi dalam Multimedia</h1>
+  <!-- Hero Header section -->
+  <header class="relative pt-32 pb-16 md:py-40 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-70"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-orange-500 to-yellow-500 p-1 mb-6 animate-float">
+          <div class="bg-black rounded-full overflow-hidden w-full h-full flex items-center justify-center">
+            <i class="fas fa-film text-3xl text-white"></i>
+          </div>
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 reveal-text">
+          <span class="text-gradient typing-effect">Jenis Animasi</span>
+          <span class="block text-2xl md:text-3xl mt-2 text-white">dalam Multimedia</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto reveal-text-delay">
+          Animasi merupakan teknik menampilkan gambar bergerak secara cepat untuk menciptakan ilusi gerakan. Dalam multimedia, berbagai jenis animasi digunakan untuk keperluan hiburan, edukasi, dan visualisasi.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-4 mb-12 reveal-text-delay-2">
+          <a href="#animation-types" class="btn-gradient px-8 py-3 rounded-full text-white font-medium hover-target">
+            Lihat Jenis Animasi
+          </a>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 reveal-text-delay-3">
+          <a href="#animation-types" class="animate-bounce block">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <p>
-      Animasi merupakan teknik menampilkan gambar bergerak secara cepat untuk menciptakan ilusi gerakan. Dalam multimedia, berbagai jenis animasi digunakan untuk keperluan hiburan, edukasi, dan visualisasi.
-    </p>
+  <!-- Animation Types Section -->
+  <section id="animation-types" class="py-16 md:py-24 bg-black bg-opacity-80">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 reveal-text">
+        <span class="text-gradient">Jenis Animasi</span>
+      </h2>
 
-    <h2>Contoh Jenis Animasi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger">
+        <!-- 2D Animation -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-vector-square"></i>
+          </div>
+          <h3 class="animation-type">2D Animation</h3>
+          <span class="format-tag">Traditional</span>
+          <p class="animation-description">Animasi dua dimensi yang menggunakan gambar datar dan digerakkan secara frame-by-frame.</p>
+          <div class="video-preview">
+            <video controls class="w-full rounded">
+              <source src="2d-animation.mp4" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+          <a href="2d-animation.mp4" download class="download-btn flex items-center gap-1 mt-2 ml-auto">
+            <span>Download</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
 
-    <div class="video-sample">
-      <h3>2D Animation</h3>
-      <p>Animasi dua dimensi yang menggunakan gambar datar dan digerakkan secara frame-by-frame.</p>
-      <video controls>
-        <source src="2d-animation.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-      <a href="2d-animation.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">Download</a>
+        <!-- 3D Animation -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-cube"></i>
+          </div>
+          <h3 class="animation-type">3D Animation</h3>
+          <span class="format-tag">Modern</span>
+          <p class="animation-description">Animasi tiga dimensi yang memberikan ilusi kedalaman dan realisme melalui model digital.</p>
+          <div class="video-preview">
+            <video controls class="w-full rounded">
+              <source src="3d-animation.mp4" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+          <a href="3d-animation.mp4" download class="download-btn flex items-center gap-1 mt-2 ml-auto">
+            <span>Download</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Stop Motion -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3 class="animation-type">Stop Motion</h3>
+          <span class="format-tag">Physical</span>
+          <p class="animation-description">Animasi yang dibuat dari foto-foto objek nyata yang digerakkan sedikit demi sedikit di setiap frame.</p>
+          <div class="video-preview">
+            <video controls class="w-full rounded">
+              <source src="stop-motion.mp4" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+          <a href="stop-motion.mp4" download class="download-btn flex items-center gap-1 mt-2 ml-auto">
+            <span>Download</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Whiteboard Animation -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-pen"></i>
+          </div>
+          <h3 class="animation-type">Whiteboard Animation</h3>
+          <span class="format-tag">Explanatory</span>
+          <p class="animation-description">Animasi yang menampilkan tangan menggambar di papan putih secara bertahap untuk menjelaskan suatu ide atau konsep.</p>
+          <div class="video-preview">
+            <video controls class="w-full rounded">
+              <source src="whiteboard.mp4" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+          <a href="whiteboard.mp4" download class="download-btn flex items-center gap-1 mt-2 ml-auto">
+            <span>Download</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Motion Graphics -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="animation-type">Motion Graphics</h3>
+          <span class="format-tag">Digital</span>
+          <p class="animation-description">Animasi berbasis grafis yang sering dipadukan dengan teks untuk presentasi visual atau video digital.</p>
+          <div class="video-preview">
+            <video controls class="w-full rounded">
+              <source src="motion-graphics.mp4" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+          <a href="motion-graphics.mp4" download class="download-btn flex items-center gap-1 mt-2 ml-auto">
+            <span>Download</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Cut-out Animation -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-cut"></i>
+          </div>
+          <h3 class="animation-type">Cut-out Animation</h3>
+          <span class="format-tag">Traditional</span>
+          <p class="animation-description">Animasi yang menggunakan potongan gambar atau kertas yang digerakkan seperti boneka.</p>
+          <div class="video-preview">
+            <video controls class="w-full rounded">
+              <source src="cutout-animation.mp4" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+          <a href="cutout-animation.mp4" download class="download-btn flex items-center gap-1 mt-2 ml-auto">
+            <span>Download</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Animasi Siluet -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-user-silhouette"></i>
+          </div>
+          <h3 class="animation-type">Animasi Siluet</h3>
+          <span class="format-tag">Artistic</span>
+          <p class="animation-description">Animasi yang menampilkan objek atau tokoh dalam bentuk bayangan gelap tanpa detail wajah atau warna.</p>
+          <div class="video-preview">
+            <video controls class="w-full rounded">
+              <source src="siluet-animation.mp4" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+          <a href="siluet-animation.mp4" download class="download-btn flex items-center gap-1 mt-2 ml-auto">
+            <span>Download</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Animasi Hybrid -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-object-group"></i>
+          </div>
+          <h3 class="animation-type">Animasi Hybrid</h3>
+          <span class="format-tag">Mixed</span>
+          <p class="animation-description">Gabungan dari dua atau lebih teknik animasi seperti 2D dan 3D dalam satu produksi.</p>
+          <div class="video-preview">
+            <video controls class="w-full rounded">
+              <source src="hybrid-animation.mp4" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+          <a href="hybrid-animation.mp4" download class="download-btn flex items-center gap-1 mt-2 ml-auto">
+            <span>Download</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Animasi Eksperimental -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-flask"></i>
+          </div>
+          <h3 class="animation-type">Animasi Eksperimental</h3>
+          <span class="format-tag">Experimental</span>
+          <p class="animation-description">Animasi yang mengeksplorasi bentuk, gaya, dan teknik secara bebas tanpa mengikuti aturan konvensional.</p>
+          <div class="video-preview">
+            <video controls class="w-full rounded">
+              <source src="eksperimental.mp4" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+          <a href="eksperimental.mp4" download class="download-btn flex items-center gap-1 mt-2 ml-auto">
+            <span>Download</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Animasi Web -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="animation-type">Animasi Web</h3>
+          <span class="format-tag">Web</span>
+          <p class="animation-description">Animasi ringan yang dirancang untuk ditampilkan di halaman web, biasanya menggunakan CSS, SVG, atau JavaScript.</p>
+          <div class="video-preview">
+            <video controls class="w-full rounded">
+              <source src="web-animation.mp4" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+          <a href="web-animation.mp4" download class="download-btn flex items-center gap-1 mt-2 ml-auto">
+            <span>Download</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+      </div>
     </div>
-
-    <div class="video-sample">
-      <h3>3D Animation</h3>
-      <p>Animasi tiga dimensi yang memberikan ilusi kedalaman dan realisme melalui model digital.</p>
-      <video controls>
-        <source src="3d-animation.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-      <a href="3d-animation.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">Download</a>
-    </div>
-
-    <div class="video-sample">
-      <h3>Stop Motion</h3>
-      <p>Animasi yang dibuat dari foto-foto objek nyata yang digerakkan sedikit demi sedikit di setiap frame.</p>
-      <video controls>
-        <source src="stop-motion.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-      <a href="stop-motion.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">Download</a>
-    </div>
-
-    <div class="video-sample">
-      <h3>Whiteboard Animation</h3>
-      <p>Animasi yang menampilkan tangan menggambar di papan putih secara bertahap untuk menjelaskan suatu ide atau konsep.</p>
-      <video controls>
-        <source src="whiteboard.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-      <a href="whiteboard.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">Download</a>
-    </div>
-
-    <div class="video-sample">
-      <h3>Motion Graphics</h3>
-      <p>Animasi berbasis grafis yang sering dipadukan dengan teks untuk presentasi visual atau video digital.</p>
-      <video controls>
-        <source src="motion-graphics.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-      <a href="motion-graphics.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">Download</a>
-    </div>
-
-    <div class="video-sample">
-      <h3>Cut-out Animation</h3>
-      <p>Animasi yang menggunakan potongan gambar atau kertas yang digerakkan seperti boneka.</p>
-      <video controls>
-        <source src="cutout-animation.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-      <a href="cutout-animation.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">Download</a>
-    </div>
-
-    <div class="video-sample">
-      <h3>Animasi Siluet</h3>
-      <p>Animasi yang menampilkan objek atau tokoh dalam bentuk bayangan gelap tanpa detail wajah atau warna.</p>
-      <video controls>
-        <source src="siluet-animation.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-      <a href="siluet-animation.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">Download</a>
-    </div>
-
-    <div class="video-sample">
-      <h3>Animasi Hybrid</h3>
-      <p>Gabungan dari dua atau lebih teknik animasi seperti 2D dan 3D dalam satu produksi.</p>
-      <video controls>
-        <source src="hybrid-animation.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-      <a href="hybrid-animation.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">Download</a>
-    </div>
-
-    <div class="video-sample">
-      <h3>Animasi Eksperimental</h3>
-      <p>Animasi yang mengeksplorasi bentuk, gaya, dan teknik secara bebas tanpa mengikuti aturan konvensional.</p>
-      <video controls>
-        <source src="eksperimental.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-      <a href="eksperimental.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">Download</a>
-    </div>
-
-    <div class="video-sample">
-      <h3>Animasi Web</h3>
-      <p>Animasi ringan yang dirancang untuk ditampilkan di halaman web, biasanya menggunakan CSS, SVG, atau JavaScript.</p>
-      <video controls>
-        <source src="web-animation.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-      <a href="web-animation.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">Download</a>
-    </div>
-
   </section>
 
-  <footer>
-    <p>&copy; 2025 Muhammad Fikry Efendi. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="py-6 bg-black">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p>&copy; 2025 Muhammad Fikry Efendi. All rights reserved.</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="project1.html" class="text-gray-400 hover:text-white transition-colors duration-300">Project1</a>
+          <a href="font.html" class="text-gray-400 hover:text-white transition-colors duration-300">Font</a>
+          <a href="gambar.html" class="text-gray-400 hover:text-white transition-colors duration-300">Gambar</a>
+          <a href="audio.html" class="text-gray-400 hover:text-white transition-colors duration-300">Audio</a>
+          <a href="video.html" class="text-gray-400 hover:text-white transition-colors duration-300">Video</a>
+          <a href="animasi.html" class="text-gray-400 hover:text-white transition-colors duration-300">Animasi</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
+  <!-- Back to top button -->
+  <div id="back-to-top" class="fixed bottom-8 right-8 bg-gradient-to-r from-orange-500 to-yellow-500 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer shadow-lg opacity-0 transition-opacity duration-300 hover:shadow-xl hover-target" style="z-index: 50;">
+    <i class="fas fa-arrow-up text-white"></i>
+  </div>
 
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+  <script>
+    // Initialize GSAP and ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Custom cursor
+    document.addEventListener('DOMContentLoaded', function() {
+      const cursor = document.querySelector('.custom-cursor');
+      const cursorDot = document.querySelector('.cursor-dot');
+      
+      document.addEventListener('mousemove', function(e) {
+        if (cursor && cursorDot) {
+          gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+          gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.03 });
+        }
+      });
+      
+      // Show cursor only on desktop
+      if (window.innerWidth > 768) {
+        cursor.style.display = 'block';
+        cursorDot.style.display = 'block';
+      }
     });
-  </script>
+    
+    // GSAP animations for sections
+    document.addEventListener('DOMContentLoaded', function() {
+      // Hero animations
+      gsap.utils.toArray('.reveal-top').forEach((element, i) => {
+        gsap.fromTo(element, {
+          y: -50,
+          opacity: 0
+        }, {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          delay: i * 0.2,
+          ease: 'power3.out'
+        });
+      });
+      
+      gsap.utils.toArray('.reveal-top-delay').forEach((element) => {
+        gsap.fromTo(element, {
+          y: -30,
+          opacity: 0
+        }, {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          delay: 0.3,
+          ease: 'power2.out'
+        });
+      });
+      
+      // Content sections
+    gsap.utils.toArray('.reveal-up').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+    
+    gsap.utils.toArray('.reveal-up-delay').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+    
+    gsap.utils.toArray('.reveal-up-delay-2').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.4,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+    
+    // Data buttons animation
+    gsap.utils.toArray('.data-links a').forEach((button, i) => {
+      gsap.fromTo(button, {
+        y: 50,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.1 * i,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: button.parentElement,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+  });
+  
+  // Back to top button
+  document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopButton.style.opacity = '1';
+      } else {
+        backToTopButton.style.opacity = '0';
+      }
+    });
+    
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 </body>
 </html>

@@ -1,353 +1,661 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jenis Video dalam Multimedia | Fikry</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jenis Format Video dalam Multimedia | Fikry</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    html {
+      scroll-behavior: smooth;
     }
-
+    
     body {
-      font-family: Arial, sans-serif;
-      color: #fff;
-      background-image: url('background.jpg');
+      font-family: 'Poppins', sans-serif;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/1080');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      padding-bottom: 60px;
-      overflow-x: hidden;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: rgba(51, 51, 51, 0.9);
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 1.4em;
-      font-weight: bold;
-      color: orange;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
       color: #fff;
-      text-decoration: none;
-      font-size: 1.1em;
-      transition: color 0.3s ease;
     }
-
-    .nav-links a:hover {
-      color: orange;
+    
+    .text-gradient {
+      background: linear-gradient(to right, #f97316, #eab308);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-
-    header {
-      text-align: center;
-      padding: 130px 20px 60px;
+    
+    .nav-link {
+      position: relative;
     }
-
-    h1 {
-      color: orange;
-      margin-bottom: 20px;
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: linear-gradient(to right, #f97316, #eab308);
+      transition: width 0.3s ease;
     }
-
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
+    
+    .nav-link:hover::after {
+      width: 100%;
     }
-
-    section p {
-      margin-bottom: 30px;
-      line-height: 1.6;
-      text-align: justify;
+    
+    .card-hover {
+      transition: all 0.3s ease;
     }
-
-    h2 {
-      color: orange;
-      text-align: center;
-      margin-bottom: 20px;
+    
+    .card-hover:hover {
+      transform: translateY(-10px);
     }
-
+    
+    .btn-gradient {
+      background: linear-gradient(to right, #f97316, #eab308);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-gradient:hover {
+      background: linear-gradient(to right, #ea580c, #ca8a04);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
     .video-sample {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 12px 20px;
-      margin: 12px 0;
-      border-radius: 6px;
-      text-align: center;
-    }
-
-    .video-sample video {
-      width: 100%;
+      background-color: rgba(31, 41, 55, 0.8);
+      padding: 20px;
+      margin-bottom: 30px;
       border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
-
-    footer {
-      text-align: center;
-      padding: 15px 10px;
-      background-color: rgba(51, 51, 51, 0.95);
-      position: fixed;
-      bottom: 0;
+    
+    .video-sample:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border-color: rgba(249, 115, 22, 0.3);
+    }
+    
+    .video-sample::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #f97316, #eab308);
+    }
+    
+    .video-format {
+      color: #f97316;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+    
+    .format-tag {
+      background-color: rgba(249, 115, 22, 0.2);
+      color: #f97316;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    
+    .video-description {
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #d1d5db;
+    }
+    
+    .video-preview {
       width: 100%;
-      font-size: 0.85em;
-      color: #fff;
+      margin: 15px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
-
-    footer a {
-      color: #fff;
+    
+    .video-preview video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      color: #f97316;
       text-decoration: none;
+      transition: all 0.3s ease;
     }
-
-    footer a:hover {
-      color: orange;
+    
+    .download-btn:hover {
+      color: #eab308;
+      transform: translateY(-2px);
     }
-
-    .menu-toggle {
-      display: none;
+    
+    .custom-cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #f97316;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      mix-blend-mode: difference;
+      transition: width 0.3s, height 0.3s, background-color 0.3s;
     }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        margin-top: 10px;
-        width: 100%;
-        transform: translateY(-100%);
-      }
-
-      .nav-links.active {
-        display: flex;
-        transform: translateY(0);
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      header {
-        padding: 100px 15px 40px;
-      }
-
-      section {
-        padding: 20px 15px;
-      }
-
-      .video-sample {
-        padding: 10px;
-      }
-
-      .video-sample video {
-        max-width: 100%;
-        height: auto;
-      }
-
-      h1 {
-        font-size: 1.5em;
-      }
-
-      h2 {
-        font-size: 1.3em;
-      }
-
-      h3 {
-        font-size: 1.1em;
-      }
-
-      footer {
-        font-size: 0.75em;
-        padding: 10px 5px;
-      }
+    
+    .cursor-dot {
+      width: 4px;
+      height: 4px;
+      background-color: #f97316;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: opacity 0.3s;
+    }
+    
+    .hover-target:hover ~ .custom-cursor {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(249, 115, 22, 0.1);
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
     }
   </style>
 </head>
-<body>
-    <nav>
-        <div class="nav-top" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-          <div class="logo">Fikry</div>
-          <div class="menu-toggle" id="menu-toggle">
-            <i class="fa-solid fa-bars"></i> <!-- Ikon garis tiga -->
+<body class="text-white pb-16" x-data="{ menuOpen: false, section: 'video' }">
+  <!-- Custom cursor -->
+  <div class="custom-cursor hidden md:block"></div>
+  <div class="cursor-dot hidden md:block"></div>
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 transition-all duration-300" 
+       :class="{ 'bg-transparent': !menuOpen && window.pageYOffset < 100, 'bg-black bg-opacity-90 shadow-lg': menuOpen || window.pageYOffset >= 100 }"
+       @scroll.window="window.pageYOffset >= 100 ? $el.classList.add('py-2') : $el.classList.add('py-4')">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between py-4">
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="text-3xl font-bold text-gradient">Fikry</span>
+        </a>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button @click="menuOpen = !menuOpen" type="button" class="text-white focus:outline-none">
+            <svg x-show="!menuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg x-show="menuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Desktop menu -->
+        <div class="hidden md:flex md:items-center md:space-x-8">
+          <a href="project1.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Project</a>
+          <a href="font.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Font</a>
+          <a href="gambar.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Gambar</a>
+          <a href="audio.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Audio</a>
+          <a href="video.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300 text-orange-400">Video</a>
+          <a href="animasi.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Animasi</a>
+          <a href="index.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Home</a>
+        </div>
+      </div>
+      
+      <!-- Mobile menu -->
+      <div x-show="menuOpen" 
+           x-transition:enter="transition ease-out duration-300"
+           x-transition:enter-start="opacity-0 transform -translate-y-4"
+           x-transition:enter-end="opacity-100 transform translate-y-0"
+           x-transition:leave="transition ease-in duration-300"
+           x-transition:leave-start="opacity-100 transform translate-y-0"
+           x-transition:leave-end="opacity-0 transform -translate-y-4"
+           class="md:hidden py-2">
+        <a href="project1.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Project</a>
+        <a href="font.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Font</a>
+        <a href="gambar.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Gambar</a>
+        <a href="audio.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Audio</a>
+        <a href="video.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Video</a>
+        <a href="animasi.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Animasi</a>
+        <a href="index.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header section -->
+  <header class="relative pt-32 pb-16 md:py-40 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-70"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-orange-500 to-yellow-500 p-1 mb-6 animate-float">
+          <div class="bg-black rounded-full overflow-hidden w-full h-full flex items-center justify-center">
+            <i class="fas fa-video text-3xl text-white"></i>
           </div>
         </div>
-        <div class="nav-links" id="nav-links">
-          <a href="project1.html">Project</a>
-          <a href="font.html">Font</a>
-          <a href="gambar.html">Gambar</a>
-          <a href="audio.html">Audio</a>
-          <a href="video.html">Video</a>
-          <a href="animasi.html">Animasi</a>
+        
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 reveal-text">
+          <span class="text-gradient typing-effect">Jenis Format Video</span>
+          <span class="block text-2xl md:text-3xl mt-2 text-white">dalam Multimedia</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto reveal-text-delay">
+          Video adalah elemen multimedia yang sangat penting untuk menyampaikan informasi secara visual dan auditori. Ada berbagai format video yang digunakan untuk berbagai kebutuhan.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-4 mb-12 reveal-text-delay-2">
+          <a href="#video-formats" class="btn-gradient px-8 py-3 rounded-full text-white font-medium hover-target">
+            Lihat Format Video
+          </a>
         </div>
-      </nav>
-
-  <header>
-    <h1>Jenis Video dalam Multimedia</h1>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 reveal-text-delay-3">
+          <a href="#video-formats" class="animate-bounce block">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <p>
-      Video adalah elemen multimedia yang sangat penting untuk menyampaikan informasi secara visual dan auditori. Ada berbagai format video yang digunakan untuk berbagai kebutuhan.
-    </p>
-    <p>beberapa format video tidak bisa menampilkan preview videonya dikarenakan keterbatasan jumlah format yang bisa dibuka lewat browser</p>
-  <p>namun pengguna bisa mengklik tombol download untuk melihat video dalam bentuk format yang tidak bisa tampil melalui browser</p>
+  <!-- Video Formats Section -->
+  <section id="video-formats" class="py-16 md:py-24 bg-black bg-opacity-80">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 reveal-text">
+        <span class="text-gradient">Format Video</span>
+      </h2>
 
-    <h2>Contoh Format Video</h2>
-
-    <div class="video-sample">
-      <h3>Format MP4</h3>
-      <video controls>
-        <source src="video1.mp4" type="video/mp4">
-        Browser tidak mendukung pemutar video.
-      </video>
-      <p>MP4 adalah format video paling populer dan kompatibel dengan hampir semua browser modern. Menggunakan kompresi H.264 yang efisien, membuatnya ringan tapi tetap mempertahankan kualitas tinggi. Cocok untuk digunakan di website.</p>
-      <a href="video1.mp4" download style="color: orange; display: inline-block; margin-top: 10px;">
-        Download format MP4
-      </a>
+      <p class="text-center text-gray-300 mb-8">
+        Beberapa format video tidak bisa menampilkan preview videonya dikarenakan keterbatasan jumlah format yang bisa dibuka lewat browser.
+        <br>Namun pengguna bisa mengklik tombol download untuk melihat video dalam bentuk format yang tidak bisa tampil melalui browser.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger">
+        <!-- MP4 Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-video"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Format MP4</h3>
+          <p class="text-gray-300 mb-4">MP4 adalah format video paling populer dan kompatibel dengan hampir semua browser modern. Menggunakan kompresi H.264 yang efisien, membuatnya ringan tapi tetap mempertahankan kualitas tinggi. Cocok untuk digunakan di website.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <video controls class="w-full rounded-md">
+              <source src="video1.mp4" type="video/mp4">
+              Browser tidak mendukung pemutar video.
+            </video>
+            <a href="video1.mp4" download class="text-orange-500 hover:text-orange-300 flex items-center justify-center gap-2 mt-3 transition-all">
+              <i class="fas fa-download"></i> Download format MP4
+            </a>
+          </div>
+        </div>
+        
+        <!-- AVI Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-video"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Format AVI</h3>
+          <p class="text-gray-300 mb-4">AVI adalah format video standar lama dari Microsoft. Kualitas videonya cukup baik, namun ukuran file besar dan tidak semua browser dapat memutar AVI secara langsung tanpa codec tambahan.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <video controls class="w-full rounded-md">
+              <source src="video2.avi" type="video/avi">
+              Browser tidak mendukung pemutar video.
+            </video>
+            <a href="video2.avi" download class="text-orange-500 hover:text-orange-300 flex items-center justify-center gap-2 mt-3 transition-all">
+              <i class="fas fa-download"></i> Download format AVI
+            </a>
+          </div>
+        </div>
+        
+        <!-- MKV Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-video"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Format MKV</h3>
+          <p class="text-gray-300 mb-4">MKV adalah format open-source yang fleksibel dan mendukung berbagai codec, subtitle, serta multi-audio. Namun, tidak semua browser mendukung format ini secara langsung tanpa bantuan software tambahan.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <video controls class="w-full rounded-md">
+              <source src="video3.mkv" type="video/mkv">
+              Browser tidak mendukung pemutar video.
+            </video>
+            <a href="video3.mkv" download class="text-orange-500 hover:text-orange-300 flex items-center justify-center gap-2 mt-3 transition-all">
+              <i class="fas fa-download"></i> Download format MKV
+            </a>
+          </div>
+        </div>
+        
+        <!-- MOV Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-video"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Format MOV</h3>
+          <p class="text-gray-300 mb-4">MOV adalah format video yang dikembangkan oleh Apple dan sering digunakan di perangkat macOS/iOS. Kualitasnya bagus, namun kurang kompatibel di browser non-Apple tanpa konversi.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <video controls class="w-full rounded-md">
+              <source src="video4.mov" type="video/quicktime">
+              Browser tidak mendukung pemutar video.
+            </video>
+            <a href="video4.mov" download class="text-orange-500 hover:text-orange-300 flex items-center justify-center gap-2 mt-3 transition-all">
+              <i class="fas fa-download"></i> Download format MOV
+            </a>
+          </div>
+        </div>
+        
+        <!-- FLV Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-video"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Format FLV</h3>
+          <p class="text-gray-300 mb-4">FLV dulunya populer untuk video streaming di web menggunakan Adobe Flash. Kini kurang digunakan karena Flash sudah tidak didukung oleh banyak browser.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <video controls class="w-full rounded-md">
+              <source src="video5.flv" type="video/x-flv">
+              Browser tidak mendukung pemutar video.
+            </video>
+            <a href="video5.flv" download class="text-orange-500 hover:text-orange-300 flex items-center justify-center gap-2 mt-3 transition-all">
+              <i class="fas fa-download"></i> Download format FLV
+            </a>
+          </div>
+        </div>
+        
+        <!-- WMV Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-video"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Format WMV</h3>
+          <p class="text-gray-300 mb-4">WMV adalah format video milik Microsoft. Ukurannya relatif kecil dengan kualitas sedang, namun sering bermasalah di browser non-Windows.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <video controls class="w-full rounded-md">
+              <source src="video6.wmv" type="video/x-ms-wmv">
+              Browser tidak mendukung pemutar video.
+            </video>
+            <a href="video6.wmv" download class="text-orange-500 hover:text-orange-300 flex items-center justify-center gap-2 mt-3 transition-all">
+              <i class="fas fa-download"></i> Download format WMV
+            </a>
+          </div>
+        </div>
+        
+        <!-- 3GP Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Format 3GP</h3>
+          <p class="text-gray-300 mb-4">3GP awalnya dirancang untuk ponsel dengan spesifikasi rendah. Ukuran file sangat kecil, namun kualitas video rendah dan tidak semua browser mendukungnya.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <video controls class="w-full rounded-md">
+              <source src="video7.3gp" type="video/3gpp">
+              Browser tidak mendukung pemutar video.
+            </video>
+            <a href="video7.3gp" download class="text-orange-500 hover:text-orange-300 flex items-center justify-center gap-2 mt-3 transition-all">
+              <i class="fas fa-download"></i> Download format 3GP
+            </a>
+          </div>
+        </div>
+        
+        <!-- WebM Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Format WebM</h3>
+          <p class="text-gray-300 mb-4">WebM adalah format yang dioptimalkan untuk web. Ukuran file kecil, kualitas baik, dan sangat didukung oleh browser seperti Chrome dan Firefox.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <video controls class="w-full rounded-md">
+              <source src="video8.webm" type="video/webm">
+              Browser tidak mendukung pemutar video.
+            </video>
+            <a href="video8.webm" download class="text-orange-500 hover:text-orange-300 flex items-center justify-center gap-2 mt-3 transition-all">
+              <i class="fas fa-download"></i> Download format WebM
+            </a>
+          </div>
+        </div>
+        
+        <!-- MPEG Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-video"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Format MPEG</h3>
+          <p class="text-gray-300 mb-4">MPEG adalah standar video lama yang mendukung kompresi efisien. Namun, format ini mulai jarang digunakan dan tidak seefisien MP4 dalam hal kualitas dan ukuran.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <video controls class="w-full rounded-md">
+              <source src="video9.mpeg" type="video/mpeg">
+              Browser tidak mendukung pemutar video.
+            </video>
+            <a href="video9.mpeg" download class="text-orange-500 hover:text-orange-300 flex items-center justify-center gap-2 mt-3 transition-all">
+              <i class="fas fa-download"></i> Download format MPEG
+            </a>
+          </div>
+        </div>
+        
+        <!-- AVCHD Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-camera-movie"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Format AVCHD</h3>
+          <p class="text-gray-300 mb-4">AVCHD adalah format berkualitas tinggi yang sering digunakan oleh camcorder digital. Ukuran file besar dan umumnya tidak didukung oleh browser tanpa konversi.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <video controls class="w-full rounded-md">
+              <source src="video10.mts" type="video/avchd">
+              Browser tidak mendukung pemutar video.
+            </video>
+            <a href="video10.mts" download class="text-orange-500 hover:text-orange-300 flex items-center justify-center gap-2 mt-3 transition-all">
+              <i class="fas fa-download"></i> Download format AVCHD
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <div class="video-sample">
-      <h3>Format AVI</h3>
-      <video controls>
-        <source src="video2.avi" type="video/avi">
-        Browser tidak mendukung pemutar video.
-      </video>
-      <p>AVI adalah format video standar lama dari Microsoft. Kualitas videonya cukup baik, namun ukuran file besar dan tidak semua browser dapat memutar AVI secara langsung tanpa codec tambahan.</p>
-      <a href="video2.avi" download style="color: orange; display: inline-block; margin-top: 10px;">
-        Download format AVI
-      </a>
-    </div>
-    
-    <div class="video-sample">
-      <h3>Format MKV</h3>
-      <video controls>
-        <source src="video3.mkv" type="video/mkv">
-        Browser tidak mendukung pemutar video.
-      </video>
-      <p>MKV adalah format open-source yang fleksibel dan mendukung berbagai codec, subtitle, serta multi-audio. Namun, tidak semua browser mendukung format ini secara langsung tanpa bantuan software tambahan.</p>
-      <a href="video3.mkv" download style="color: orange; display: inline-block; margin-top: 10px;">
-        Download format MKV
-      </a>
-    </div>
-    
-    <div class="video-sample">
-      <h3>Format MOV</h3>
-      <video controls>
-        <source src="video4.mov" type="video/quicktime">
-        Browser tidak mendukung pemutar video.
-      </video>
-      <p>MOV adalah format video yang dikembangkan oleh Apple dan sering digunakan di perangkat macOS/iOS. Kualitasnya bagus, namun kurang kompatibel di browser non-Apple tanpa konversi.</p>
-      <a href="video4.mov" download style="color: orange; display: inline-block; margin-top: 10px;">
-        Download format MOV
-      </a>
-    </div>
-    
-    <div class="video-sample">
-      <h3>Format FLV</h3>
-      <video controls>
-        <source src="video5.flv" type="video/x-flv">
-        Browser tidak mendukung pemutar video.
-      </video>
-      <p>FLV dulunya populer untuk video streaming di web menggunakan Adobe Flash. Kini kurang digunakan karena Flash sudah tidak didukung oleh banyak browser.</p>
-      <a href="video5.flv" download style="color: orange; display: inline-block; margin-top: 10px;">
-        Download format FLV
-      </a>
-    </div>
-    
-    <div class="video-sample">
-      <h3>Format WMV</h3>
-      <video controls>
-        <source src="video6.wmv" type="video/x-ms-wmv">
-        Browser tidak mendukung pemutar video.
-      </video>
-      <p>WMV adalah format video milik Microsoft. Ukurannya relatif kecil dengan kualitas sedang, namun sering bermasalah di browser non-Windows.</p>
-      <a href="video6.wmv" download style="color: orange; display: inline-block; margin-top: 10px;">
-        Download format WMV
-      </a>
-    </div>
-    
-    <div class="video-sample">
-      <h3>Format 3GP</h3>
-      <video controls>
-        <source src="video7.3gp" type="video/3gpp">
-        Browser tidak mendukung pemutar video.
-      </video>
-      <p>3GP awalnya dirancang untuk ponsel dengan spesifikasi rendah. Ukuran file sangat kecil, namun kualitas video rendah dan tidak semua browser mendukungnya.</p>
-      <a href="video7.3gp" download style="color: orange; display: inline-block; margin-top: 10px;">
-        Download format 3GP
-      </a>
-    </div>
-    
-    <div class="video-sample">
-      <h3>Format WebM</h3>
-      <video controls>
-        <source src="video8.webm" type="video/webm">
-        Browser tidak mendukung pemutar video.
-      </video>
-      <p>WebM adalah format yang dioptimalkan untuk web. Ukuran file kecil, kualitas baik, dan sangat didukung oleh browser seperti Chrome dan Firefox.</p>
-      <a href="video8.webm" download style="color: orange; display: inline-block; margin-top: 10px;">
-        Download format WebM
-      </a>
-    </div>
-    
-    <div class="video-sample">
-      <h3>Format MPEG</h3>
-      <video controls>
-        <source src="video9.mpeg" type="video/mpeg">
-        Browser tidak mendukung pemutar video.
-      </video>
-      <p>MPEG adalah standar video lama yang mendukung kompresi efisien. Namun, format ini mulai jarang digunakan dan tidak seefisien MP4 dalam hal kualitas dan ukuran.</p>
-      <a href="video9.mpeg" download style="color: orange; display: inline-block; margin-top: 10px;">
-        Download format MPEG
-      </a>
-    </div>
-    
-    <div class="video-sample">
-      <h3>Format AVCHD</h3>
-      <video controls>
-        <source src="video10.mts" type="video/avchd">
-        Browser tidak mendukung pemutar video.
-      </video>
-      <p>AVCHD adalah format berkualitas tinggi yang sering digunakan oleh camcorder digital. Ukuran file besar dan umumnya tidak didukung oleh browser tanpa konversi.</p>
-      <a href="video10.mts" download style="color: orange; display: inline-block; margin-top: 10px;">
-        Download format AVCHD
-      </a>
-    </div>    
   </section>
 
-  <footer>
-    <p>&copy; 2025 Muhammad Fikry Efendi. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="py-6 bg-black">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p>&copy; 2025 Muhammad Fikry Efendi. All rights reserved.</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="project1.html" class="text-gray-400 hover:text-white transition-colors duration-300">Project</a>
+          <a href="font.html" class="text-gray-400 hover:text-white transition-colors duration-300">Font</a>
+          <a href="gambar.html" class="text-gray-400 hover:text-white transition-colors duration-300">Gambar</a>
+          <a href="audio.html" class="text-gray-400 hover:text-white transition-colors duration-300">Audio</a>
+          <a href="video.html" class="text-gray-400 hover:text-white transition-colors duration-300">Video</a>
+          <a href="animasi.html" class="text-gray-400 hover:text-white transition-colors duration-300">Animasi</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-  
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
+ <!-- Back to top button -->
+<div id="back-to-top" class="fixed bottom-8 right-8 bg-gradient-to-r from-orange-500 to-yellow-500 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer shadow-lg opacity-0 transition-opacity duration-300 hover:shadow-xl hover-target" style="z-index: 50;">
+  <i class="fas fa-arrow-up text-white"></i>
+</div>
 
+<script>
+  // Initialize GSAP and ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Custom cursor
+  document.addEventListener('DOMContentLoaded', function() {
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.cursor-dot');
+    
+    document.addEventListener('mousemove', function(e) {
+      if (cursor && cursorDot) {
+        gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+        gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.03 });
+      }
+    });
+    
+    // Show cursor only on desktop
+    if (window.innerWidth > 768) {
+      cursor.style.display = 'block';
+      cursorDot.style.display = 'block';
+    }
+  });
+  
+  // GSAP animations for sections
+  document.addEventListener('DOMContentLoaded', function() {
+    // Hero animations
+    gsap.utils.toArray('.reveal-top').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: -50,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: i * 0.2,
+        ease: 'power3.out'
+      });
+    });
+    
+    gsap.utils.toArray('.reveal-top-delay').forEach((element) => {
+      gsap.fromTo(element, {
+        y: -30,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.3,
+        ease: 'power2.out'
+      });
+    });
+    
+    // Content sections
+    gsap.utils.toArray('.reveal-up').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+    
+    gsap.utils.toArray('.reveal-up-delay').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+    
+    gsap.utils.toArray('.reveal-up-delay-2').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.4,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+    
+    // Data buttons animation
+    gsap.utils.toArray('.data-links a').forEach((button, i) => {
+      gsap.fromTo(button, {
+        y: 50,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.1 * i,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: button.parentElement,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+  });
+  
+  // Back to top button
+  document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopButton.style.opacity = '1';
+      } else {
+        backToTopButton.style.opacity = '0';
+      }
+    });
+    
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 </body>
 </html>

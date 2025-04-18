@@ -1,335 +1,636 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jenis Format Gambar dalam Multimedia | Fikry</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    html {
+      scroll-behavior: smooth;
     }
-
+    
     body {
-      font-family: Arial, sans-serif;
-      color: #fff;
-      background-image: url('background.jpg');
+      font-family: 'Poppins', sans-serif;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/1080');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      padding-bottom: 60px;
-      overflow-x: hidden;
+      color: #fff;
     }
-
-    nav {
-      position: fixed;
-      top: 0;
+    
+    .text-gradient {
+      background: linear-gradient(to right, #f97316, #eab308);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: linear-gradient(to right, #f97316, #eab308);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
       width: 100%;
-      background-color: rgba(51, 51, 51, 0.9);
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 1000;
     }
-
-    .logo {
-      font-size: 1.4em;
-      font-weight: bold;
-      color: orange;
+    
+    .card-hover {
+      transition: all 0.3s ease;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
+    
+    .card-hover:hover {
+      transform: translateY(-10px);
     }
-
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1em;
-      transition: color 0.3s ease;
+    
+    .btn-gradient {
+      background: linear-gradient(to right, #f97316, #eab308);
+      transition: all 0.3s ease;
     }
-
-    .nav-links a:hover {
-      color: orange;
+    
+    .btn-gradient:hover {
+      background: linear-gradient(to right, #ea580c, #ca8a04);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.5em;
-      cursor: pointer;
-      color: #fff;
-    }
-
-    header {
-      text-align: center;
-      padding: 130px 20px 60px;
-    }
-
-    h1 {
-      color: orange;
-      margin-bottom: 20px;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-    }
-
-    section p {
-      margin-bottom: 30px;
-      line-height: 1.6;
-      text-align: justify;
-    }
-
-    h2 {
-      color: orange;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
+    
     .image-sample {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 12px 20px;
-      margin: 12px 0;
-      border-radius: 6px;
-      text-align: center;
-    }
-
-    .image-sample img {
-      max-width: 100%;
+      background-color: rgba(31, 41, 55, 0.8);
+      padding: 20px;
+      margin-bottom: 30px;
       border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
-
-    footer {
-      text-align: center;
-      padding: 15px 10px;
-      background-color: rgba(51, 51, 51, 0.95);
-      position: fixed;
-      bottom: 0;
+    
+    .image-sample:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border-color: rgba(249, 115, 22, 0.3);
+    }
+    
+    .image-sample::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #f97316, #eab308);
+    }
+    
+    .image-format {
+      color: #f97316;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+    
+    .format-tag {
+      background-color: rgba(249, 115, 22, 0.2);
+      color: #f97316;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    
+    .image-description {
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #d1d5db;
+    }
+    
+    .image-preview {
       width: 100%;
-      font-size: 0.85em;
-      color: #fff;
+      margin: 15px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
-
-    footer a {
-      color: #fff;
+    
+    .image-preview img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .image-preview img:hover {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      color: #f97316;
       text-decoration: none;
+      transition: all 0.3s ease;
     }
-
-    footer a:hover {
-      color: orange;
+    
+    .download-btn:hover {
+      color: #eab308;
+      transform: translateY(-2px);
     }
-
-    .image-sample a:hover img {
-    opacity: 0.8;
-    transform: scale(1.02);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    
+    .custom-cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #f97316;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      mix-blend-mode: difference;
+      transition: width 0.3s, height 0.3s, background-color 0.3s;
     }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        margin-top: 10px;
-        width: 100%;
-        transform: translateY(-100%);
-      }
-
-      .nav-links.active {
-        display: flex;
-        transform: translateY(0);
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-  header {
-    padding: 100px 15px 40px;
-  }
-
-  section {
-    padding: 20px 15px;
-  }
-
-  .image-sample {
-    padding: 10px;
-  }
-
-  .image-sample img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  h1 {
-    font-size: 1.5em;
-  }
-
-  h2 {
-    font-size: 1.3em;
-  }
-
-  h3 {
-    font-size: 1.1em;
-  }
-
-  footer {
-    font-size: 0.75em;
-    padding: 10px 5px;
-  }
-}
-
+    
+    .cursor-dot {
+      width: 4px;
+      height: 4px;
+      background-color: #f97316;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: opacity 0.3s;
+    }
+    
+    .hover-target:hover ~ .custom-cursor {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(249, 115, 22, 0.1);
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
   </style>
 </head>
-<body>
-    <nav>
-        <div class="nav-top" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-          <div class="logo">Fikry</div>
-          <div class="menu-toggle" id="menu-toggle">
-            <i class="fa-solid fa-bars"></i> <!-- Ikon garis tiga -->
+<body class="text-white pb-16" x-data="{ menuOpen: false, section: 'gambar' }">
+  <!-- Custom cursor -->
+  <div class="custom-cursor hidden md:block"></div>
+  <div class="cursor-dot hidden md:block"></div>
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 transition-all duration-300" 
+       :class="{ 'bg-transparent': !menuOpen && window.pageYOffset < 100, 'bg-black bg-opacity-90 shadow-lg': menuOpen || window.pageYOffset >= 100 }"
+       @scroll.window="window.pageYOffset >= 100 ? $el.classList.add('py-2') : $el.classList.add('py-4')">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between py-4">
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="text-3xl font-bold text-gradient">Fikry</span>
+        </a>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button @click="menuOpen = !menuOpen" type="button" class="text-white focus:outline-none">
+            <svg x-show="!menuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg x-show="menuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Desktop menu -->
+        <div class="hidden md:flex md:items-center md:space-x-8">
+          <a href="project1.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Project</a>
+          <a href="font.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Font</a>
+          <a href="gambar.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300 text-orange-400">Gambar</a>
+          <a href="audio.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Audio</a>
+          <a href="video.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Video</a>
+          <a href="animasi.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Animasi</a>
+          <a href="index.html" class="nav-link text-white hover:text-orange-400 transition-all duration-300">Home</a>
+        </div>
+      </div>
+      
+      <!-- Mobile menu -->
+      <div x-show="menuOpen" 
+           x-transition:enter="transition ease-out duration-300"
+           x-transition:enter-start="opacity-0 transform -translate-y-4"
+           x-transition:enter-end="opacity-100 transform translate-y-0"
+           x-transition:leave="transition ease-in duration-300"
+           x-transition:leave-start="opacity-100 transform translate-y-0"
+           x-transition:leave-end="opacity-0 transform -translate-y-4"
+           class="md:hidden py-2">
+        <a href="project1.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Project</a>
+        <a href="font.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Font</a>
+        <a href="gambar.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Gambar</a>
+        <a href="audio.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Audio</a>
+        <a href="video.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Video</a>
+        <a href="animasi.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Animasi</a>
+        <a href="index.html" @click="menuOpen = false" class="block py-3 text-white hover:text-orange-400 transition-all duration-300">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header section -->
+  <header class="relative pt-32 pb-16 md:py-40 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-70"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-orange-500 to-yellow-500 p-1 mb-6 animate-float">
+          <div class="bg-black rounded-full overflow-hidden w-full h-full flex items-center justify-center">
+            <i class="fas fa-image text-3xl text-white"></i>
           </div>
         </div>
-        <div class="nav-links" id="nav-links">
-          <a href="project1.html">Project</a>
-          <a href="font.html">Font</a>
-          <a href="gambar.html">Gambar</a>
-          <a href="audio.html">Audio</a>
-          <a href="video.html">Video</a>
-          <a href="animasi.html">Animasi</a>
+        
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 reveal-text">
+          <span class="text-gradient typing-effect">Jenis Format Gambar</span>
+          <span class="block text-2xl md:text-3xl mt-2 text-white">dalam Multimedia</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto reveal-text-delay">
+          Gambar adalah elemen penting dalam multimedia yang dapat digunakan untuk memperkaya konten dan menyampaikan pesan secara visual. Berbagai format gambar memiliki kelebihan masing-masing, seperti ukuran file, kualitas, dan dukungan transparansi.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-4 mb-12 reveal-text-delay-2">
+          <a href="#image-formats" class="btn-gradient px-8 py-3 rounded-full text-white font-medium hover-target">
+            Lihat Format Gambar
+          </a>
         </div>
-      </nav>
-
-  <header>
-    <h1>Jenis Gambar dalam Multimedia</h1>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 reveal-text-delay-3">
+          <a href="#image-formats" class="animate-bounce block">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <p>
-      Gambar adalah elemen penting dalam multimedia yang dapat digunakan untuk memperkaya konten dan menyampaikan pesan secara visual. Berbagai format gambar memiliki kelebihan masing-masing, seperti ukuran file, kualitas, dan dukungan transparansi.
-    </p>
-    <p>beberapa format gambar tidak bisa menampilkan preview gambarnya dikarenakan keterbatasan jumlah format yang bisa dibuka lewat browser</p>
-  <p>namun pengguna bisa mengklik gambar untuk melihat gambar dalam bentuk format yang tidak bisa tampil melalui browser</p>
+  <!-- Image Formats Section -->
+  <section id="image-formats" class="py-16 md:py-24 bg-black bg-opacity-80">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 reveal-text">
+        <span class="text-gradient">Format Gambar</span>
+      </h2>
 
-    <h2>Contoh Format Gambar</h2>
-
-    <div class="image-sample">
-      <h3>Format JPEG</h3>
-      <a href="gambar1.jpg" download>
-        <img src="gambar1.jpg" alt="Contoh Gambar JPEG">
-      </a>
-      <p><em>Klik gambar untuk mendownload file aslinya.</em></p>
-      <p>JPEG (Joint Photographic Experts Group) adalah format gambar dengan kompresi lossy, cocok untuk foto karena ukurannya kecil namun kualitasnya cukup baik.</p>
+      <p class="text-center text-gray-300 mb-8">
+        Beberapa format gambar tidak bisa menampilkan preview gambarnya dikarenakan keterbatasan jumlah format yang bisa dibuka lewat browser.
+        <br>Namun pengguna bisa mengklik gambar untuk melihat atau mendownload gambar dalam bentuk format yang tidak bisa tampil melalui browser.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger">
+        <!-- JPEG Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-image"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">JPEG</h3>
+          <p class="text-gray-300 mb-4">JPEG (Joint Photographic Experts Group) adalah format gambar dengan kompresi lossy, cocok untuk foto karena ukurannya kecil namun kualitasnya cukup baik.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <a href="gambar/jpg.jpg" download class="block">
+              <img src="gambar/jpg.jpg" alt="Contoh Gambar JPEG" class="w-full rounded-md">
+            </a>
+            <p class="text-sm text-gray-400 mt-2 text-center"><em>Klik gambar untuk mendownload file aslinya.</em></p>
+          </div>
+        </div>
+      
+        <!-- PNG Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-image"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">PNG</h3>
+          <p class="text-gray-300 mb-4">PNG (Portable Network Graphics) menggunakan kompresi lossless, mempertahankan kualitas asli gambar dan mendukung transparansi.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <a href="gambar/png.png" download class="block">
+              <img src="gambar/png.png" alt="Contoh Gambar PNG" class="w-full rounded-md">
+            </a>
+            <p class="text-sm text-gray-400 mt-2 text-center"><em>Klik gambar untuk mendownload file aslinya.</em></p>
+          </div>
+        </div>
+      
+        <!-- GIF Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-film"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">GIF</h3>
+          <p class="text-gray-300 mb-4">GIF (Graphics Interchange Format) mendukung animasi dan transparansi, tetapi hanya menggunakan 256 warna sehingga kurang cocok untuk foto.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <a href="gambar/gif.gif" download class="block">
+              <img src="gambar/gif.gif" alt="Contoh Gambar GIF" class="w-full rounded-md">
+            </a>
+            <p class="text-sm text-gray-400 mt-2 text-center"><em>Klik gambar untuk mendownload file aslinya.</em></p>
+          </div>
+        </div>
+      
+        <!-- BMP Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-image"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">BMP</h3>
+          <p class="text-gray-300 mb-4">BMP (Bitmap) menyimpan gambar tanpa kompresi, menghasilkan kualitas tinggi namun ukuran file yang besar.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <a href="gambar/bmp.bmp" download class="block">
+              <img src="gambar/bmp.bmp" alt="Contoh Gambar BMP" class="w-full rounded-md">
+            </a>
+            <p class="text-sm text-gray-400 mt-2 text-center"><em>Klik gambar untuk mendownload file aslinya.</em></p>
+          </div>
+        </div>
+      
+        <!-- TIFF Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-image"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">TIFF</h3>
+          <p class="text-gray-300 mb-4">TIFF (Tagged Image File Format) biasanya digunakan untuk keperluan cetak profesional karena mendukung kualitas tinggi dan banyak metadata.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <a href="gambar/tiff.tiff" download class="block">
+              <img src="gambar/tiff.tiff" alt="Contoh Gambar TIFF" class="w-full rounded-md">
+            </a>
+            <p class="text-sm text-gray-400 mt-2 text-center"><em>Klik gambar untuk mendownload file aslinya.</em></p>
+          </div>
+        </div>
+      
+        <!-- SVG Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-bezier-curve"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">SVG</h3>
+          <p class="text-gray-300 mb-4">SVG (Scalable Vector Graphics) adalah format berbasis vektor, cocok untuk ikon, logo, dan ilustrasi karena bisa diperbesar tanpa kehilangan kualitas.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <a href="gambar/svg.svg" download class="block">
+              <img src="gambar/svg.svg" alt="Contoh Gambar SVG" class="w-full rounded-md">
+            </a>
+            <p class="text-sm text-gray-400 mt-2 text-center"><em>Klik gambar untuk mendownload file aslinya.</em></p>
+          </div>
+        </div>
+      
+        <!-- HEIF Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-file-image"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">HEIF</h3>
+          <p class="text-gray-300 mb-4">HEIF (High Efficiency Image Format) menawarkan kompresi lebih baik dari JPEG dengan kualitas serupa atau lebih baik, umum pada perangkat iOS.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <a href="gambar/heif.heif" download class="block">
+              <img src="gambar/heif.heif" alt="Contoh Gambar HEIF" class="w-full rounded-md">
+            </a>
+            <p class="text-sm text-gray-400 mt-2 text-center"><em>Klik gambar untuk mendownload file aslinya.</em></p>
+          </div>
+        </div>
+      
+        <!-- WEBP Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">WEBP</h3>
+          <p class="text-gray-300 mb-4">WEBP adalah format modern dari Google yang mendukung kompresi lossy dan lossless, transparansi, serta animasi dengan ukuran lebih kecil.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <a href="gambar/webp.webp" download class="block">
+              <img src="gambar/webp.webp" alt="Contoh Gambar WEBP" class="w-full rounded-md">
+            </a>
+            <p class="text-sm text-gray-400 mt-2 text-center"><em>Klik gambar untuk mendownload file aslinya.</em></p>
+          </div>
+        </div>
+      
+        <!-- PSD Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">PSD</h3>
+          <p class="text-gray-300 mb-4">PSD (Photoshop Document) adalah format asli dari Adobe Photoshop, menyimpan layer, efek, dan elemen desain untuk pengeditan lanjutan.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <a href="gambar/psd.psd" download class="block">
+              <img src="gambar/psd.psd" alt="Contoh Gambar PSD" class="w-full rounded-md">
+            </a>
+            <p class="text-sm text-gray-400 mt-2 text-center"><em>Klik gambar untuk mendownload file aslinya.</em></p>
+          </div>
+        </div>
+      
+        <!-- RAW Format -->
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">RAW</h3>
+          <p class="text-gray-300 mb-4">RAW adalah format mentah dari kamera digital, menyimpan semua data sensor tanpa kompresi untuk pengeditan maksimal dan kualitas terbaik.</p>
+          <div class="bg-gray-800 p-3 rounded-md">
+            <a href="gambar/raw.raw" download class="block">
+              <img src="gambar/raw.raw" alt="Contoh Gambar RAW" class="w-full rounded-md">
+            </a>
+            <p class="text-sm text-gray-400 mt-2 text-center"><em>Klik gambar untuk mendownload file aslinya.</em></p>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <div class="image-sample">
-      <h3>Format PNG</h3>
-      <a href="gambar2.png" download>
-        <img src="gambar2.png" alt="Contoh Gambar PNG">
-      </a>
-      <p><em>Klik gambar untuk mendownload file aslinya.</em></p>
-      <p>PNG (Portable Network Graphics) menggunakan kompresi lossless, mempertahankan kualitas asli gambar dan mendukung transparansi.</p>
-    </div>
-    
-    <div class="image-sample">
-      <h3>Format GIF</h3>
-      <a href="gambar3.gif" download>
-        <img src="gambar3.gif" alt="Contoh Gambar GIF">
-      </a>
-      <p><em>Klik gambar untuk mendownload file aslinya.</em></p>
-      <p>GIF (Graphics Interchange Format) mendukung animasi dan transparansi, tetapi hanya menggunakan 256 warna sehingga kurang cocok untuk foto.</p>
-    </div>
-    
-    <div class="image-sample">
-      <h3>Format BMP</h3>
-      <a href="gambar4.bmp" download>
-        <img src="gambar4.bmp" alt="Contoh Gambar BMP">
-      </a>
-      <p><em>Klik gambar untuk mendownload file aslinya.</em></p>
-      <p>BMP (Bitmap) menyimpan gambar tanpa kompresi, menghasilkan kualitas tinggi namun ukuran file yang besar.</p>
-    </div>
-    
-    <div class="image-sample">
-      <h3>Format TIFF</h3>
-      <a href="gambar5.tiff" download>
-        <img src="gambar5.tiff" alt="Contoh Gambar TIFF">
-      </a>
-      <p><em>Klik gambar untuk mendownload file aslinya.</em></p>
-      <p>TIFF (Tagged Image File Format) biasanya digunakan untuk keperluan cetak profesional karena mendukung kualitas tinggi dan banyak metadata.</p>
-    </div>
-    
-    <div class="image-sample">
-      <h3>Format SVG</h3>
-      <a href="gambar6.svg" download>
-        <img src="gambar6.svg" alt="Contoh Gambar SVG">
-      </a>
-      <p><em>Klik gambar untuk mendownload file aslinya.</em></p>
-      <p>SVG (Scalable Vector Graphics) adalah format berbasis vektor, cocok untuk ikon, logo, dan ilustrasi karena bisa diperbesar tanpa kehilangan kualitas.</p>
-    </div>
-    
-    <div class="image-sample">
-      <h3>Format HEIF</h3>
-      <a href="gambar7.heif" download>
-        <img src="gambar7.heif" alt="Contoh Gambar HEIF">
-      </a>
-      <p><em>Klik gambar untuk mendownload file aslinya.</em></p>
-      <p>HEIF (High Efficiency Image Format) menawarkan kompresi lebih baik dari JPEG dengan kualitas serupa atau lebih baik, umum pada perangkat iOS.</p>
-    </div>
-    
-    <div class="image-sample">
-      <h3>Format WEBP</h3>
-      <a href="gambar8.webp" download>
-        <img src="gambar8.webp" alt="Contoh Gambar WEBP">
-      </a>
-      <p><em>Klik gambar untuk mendownload file aslinya.</em></p>
-      <p>WEBP adalah format modern dari Google yang mendukung kompresi lossy dan lossless, transparansi, serta animasi dengan ukuran lebih kecil.</p>
-    </div>
-    
-    <div class="image-sample">
-      <h3>Format PSD</h3>
-      <a href="gambar9.psd" download>
-        <img src="gambar9.psd" alt="Contoh Gambar PSD">
-      </a>
-      <p><em>Klik gambar untuk mendownload file aslinya.</em></p>
-      <p>PSD (Photoshop Document) adalah format asli dari Adobe Photoshop, menyimpan layer, efek, dan elemen desain untuk pengeditan lanjutan.</p>
-    </div>
-    
-    <div class="image-sample">
-      <h3>Format RAW</h3>
-      <a href="gambar10.raw" download>
-        <img src="gambar10.raw" alt="Contoh Gambar RAW">
-      </a>
-      <p><em>Klik gambar untuk mendownload file aslinya.</em></p>
-      <p>RAW adalah format mentah dari kamera digital, menyimpan semua data sensor tanpa kompresi untuk pengeditan maksimal dan kualitas terbaik.</p>
-    </div>
-    
-    
   </section>
 
-  <footer>
-    <p>&copy; 2025 Muhammad Fikry Efendi. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="py-6 bg-black">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p>&copy; 2025 Muhammad Fikry Efendi. All rights reserved.</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="project1.html" class="text-gray-400 hover:text-white transition-colors duration-300">Project1</a>
+          <a href="font.html" class="text-gray-400 hover:text-white transition-colors duration-300">Font</a>
+          <a href="gambar.html" class="text-gray-400 hover:text-white transition-colors duration-300">Gambar</a>
+          <a href="audio.html" class="text-gray-400 hover:text-white transition-colors duration-300">Audio</a>
+          <a href="video.html" class="text-gray-400 hover:text-white transition-colors duration-300">Video</a>
+          <a href="animasi.html" class="text-gray-400 hover:text-white transition-colors duration-300">Animasi</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <!-- Back to top button -->
+  <div id="back-to-top" class="fixed bottom-8 right-8 bg-gradient-to-r from-orange-500 to-yellow-500 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer shadow-lg opacity-0 transition-opacity duration-300 hover:shadow-xl hover-target" style="z-index: 50;">
+    <i class="fas fa-arrow-up text-white"></i>
+  </div>
+
   <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-  
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+    // Initialize GSAP and ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Custom cursor
+    document.addEventListener('DOMContentLoaded', function() {
+      const cursor = document.querySelector('.custom-cursor');
+      const cursorDot = document.querySelector('.cursor-dot');
+      
+      document.addEventListener('mousemove', function(e) {
+        if (cursor && cursorDot) {
+          gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+          gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.03 });
+        }
+      });
+      
+      // Show cursor only on desktop
+      if (window.innerWidth > 768) {
+        cursor.style.display = 'block';
+        cursorDot.style.display = 'block';
+      }
     });
-  </script>
+    
+    // GSAP animations for sections
+  document.addEventListener('DOMContentLoaded', function() {
+    // Hero animations
+    gsap.utils.toArray('.reveal-top').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: -50,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: i * 0.2,
+        ease: 'power3.out'
+      });
+    });
+    
+    gsap.utils.toArray('.reveal-top-delay').forEach((element) => {
+      gsap.fromTo(element, {
+        y: -30,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.3,
+        ease: 'power2.out'
+      });
+    });
+    
+    // Content sections
+    gsap.utils.toArray('.reveal-up').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+    
+    gsap.utils.toArray('.reveal-up-delay').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+    
+    gsap.utils.toArray('.reveal-up-delay-2').forEach((element, i) => {
+      gsap.fromTo(element, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.4,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+    
+    // Data buttons animation
+    gsap.utils.toArray('.data-links a').forEach((button, i) => {
+      gsap.fromTo(button, {
+        y: 50,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.1 * i,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: button.parentElement,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+  });
   
+  // Back to top button
+  document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopButton.style.opacity = '1';
+      } else {
+        backToTopButton.style.opacity = '0';
+      }
+    });
+    
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 </body>
 </html>
