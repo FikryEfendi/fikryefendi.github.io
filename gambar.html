@@ -462,6 +462,245 @@
     </div>
   </section>
 
+  <section id="format-comparison" class="py-16 md:py-24 bg-black bg-opacity-80">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 reveal-text">
+        <span class="text-gradient">Analisis Perbandingan Format Gambar</span>
+      </h2>
+
+      <div class="bg-gray-900 bg-opacity-80 rounded-lg p-8 shadow-xl border border-gray-800 mb-12">
+        <p class="text-gray-300 mb-6">
+          Setiap format gambar memiliki karakteristik unik yang membuatnya cocok untuk kebutuhan tertentu. Berikut perbandingan mendetail tentang format-format gambar yang umum digunakan:
+        </p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-gray-800">
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Format</th>
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Kompresi</th>
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Transparansi</th>
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Animasi</th>
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Kedalaman Warna</th>
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Kasus Penggunaan Terbaik</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">JPEG</td>
+                <td class="p-3 border border-gray-700">Lossy</td>
+                <td class="p-3 border border-gray-700">Tidak</td>
+                <td class="p-3 border border-gray-700">Tidak</td>
+                <td class="p-3 border border-gray-700">16.7 juta warna</td>
+                <td class="p-3 border border-gray-700">Fotografi, gambar kompleks</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">PNG</td>
+                <td class="p-3 border border-gray-700">Lossless</td>
+                <td class="p-3 border border-gray-700">Ya</td>
+                <td class="p-3 border border-gray-700">Tidak</td>
+                <td class="p-3 border border-gray-700">16.7 juta warna</td>
+                <td class="p-3 border border-gray-700">Web, grafik dengan transparansi</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">GIF</td>
+                <td class="p-3 border border-gray-700">Lossless</td>
+                <td class="p-3 border border-gray-700">Ya (binary)</td>
+                <td class="p-3 border border-gray-700">Ya</td>
+                <td class="p-3 border border-gray-700">256 warna</td>
+                <td class="p-3 border border-gray-700">Animasi sederhana, grafik dengan area solid</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">BMP</td>
+                <td class="p-3 border border-gray-700">Tidak ada</td>
+                <td class="p-3 border border-gray-700">Tidak</td>
+                <td class="p-3 border border-gray-700">Tidak</td>
+                <td class="p-3 border border-gray-700">16.7 juta warna</td>
+                <td class="p-3 border border-gray-700">Aplikasi Windows, editing gambar</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">TIFF</td>
+                <td class="p-3 border border-gray-700">Lossless/Lossy</td>
+                <td class="p-3 border border-gray-700">Ya</td>
+                <td class="p-3 border border-gray-700">Tidak</td>
+                <td class="p-3 border border-gray-700">Hingga 48-bit</td>
+                <td class="p-3 border border-gray-700">Percetakan, arsip profesional</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">SVG</td>
+                <td class="p-3 border border-gray-700">N/A (vektor)</td>
+                <td class="p-3 border border-gray-700">Ya</td>
+                <td class="p-3 border border-gray-700">Ya (dengan scripting)</td>
+                <td class="p-3 border border-gray-700">Tidak terbatas</td>
+                <td class="p-3 border border-gray-700">Logo, ikon, ilustrasi</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">HEIF</td>
+                <td class="p-3 border border-gray-700">Lossy/Lossless</td>
+                <td class="p-3 border border-gray-700">Ya</td>
+                <td class="p-3 border border-gray-700">Ya</td>
+                <td class="p-3 border border-gray-700">10-bit</td>
+                <td class="p-3 border border-gray-700">Foto modern, perangkat iOS</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">WEBP</td>
+                <td class="p-3 border border-gray-700">Lossy/Lossless</td>
+                <td class="p-3 border border-gray-700">Ya</td>
+                <td class="p-3 border border-gray-700">Ya</td>
+                <td class="p-3 border border-gray-700">8-bit</td>
+                <td class="p-3 border border-gray-700">Web modern, pengganti PNG/JPEG</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">PSD</td>
+                <td class="p-3 border border-gray-700">Lossless</td>
+                <td class="p-3 border border-gray-700">Ya</td>
+                <td class="p-3 border border-gray-700">Tidak</td>
+                <td class="p-3 border border-gray-700">Hingga 32-bit</td>
+                <td class="p-3 border border-gray-700">Desain grafis, editing lanjutan</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">RAW</td>
+                <td class="p-3 border border-gray-700">Tidak ada</td>
+                <td class="p-3 border border-gray-700">Tidak</td>
+                <td class="p-3 border border-gray-700">Tidak</td>
+                <td class="p-3 border border-gray-700">12-14 bit</td>
+                <td class="p-3 border border-gray-700">Fotografi profesional, post-processing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Detailed Comparisons -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger mb-12">
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <h3 class="text-xl font-bold mb-3 text-orange-500">Kompresi dan Ukuran File</h3>
+          <p class="text-gray-300">
+            <strong>Lossy vs. Lossless:</strong> Format lossy seperti JPEG mengurangi ukuran file dengan menghilangkan beberapa data gambar, sementara format lossless seperti PNG mempertahankan semua data.
+          </p>
+          <div class="mt-4">
+            <div class="bg-gray-800 p-3 rounded">
+              <p class="text-sm text-gray-400"><strong>Ukuran File (dari kecil ke besar):</strong></p>
+              <ul class="list-disc pl-5 text-gray-300 mt-2">
+                <li>JPEG/WEBP (lossy) - terkecil</li>
+                <li>GIF</li>
+                <li>PNG/WEBP (lossless)</li>
+                <li>TIFF</li>
+                <li>BMP - terbesar</li>
+                <li>RAW - sangat besar</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <h3 class="text-xl font-bold mb-3 text-orange-500">Kualitas dan Warna</h3>
+          <p class="text-gray-300">
+            <strong>Kedalaman Bit:</strong> Semakin tinggi bit, semakin banyak gradasi warna yang dapat ditampilkan, menghasilkan kualitas gambar yang lebih baik.
+          </p>
+          <div class="mt-4">
+            <div class="bg-gray-800 p-3 rounded">
+              <p class="text-sm text-gray-400"><strong>Kualitas (dari rendah ke tinggi):</strong></p>
+              <ul class="list-disc pl-5 text-gray-300 mt-2">
+                <li>GIF (8-bit, 256 warna)</li>
+                <li>JPEG (8-bit per kanal)</li>
+                <li>PNG (8-bit atau 24-bit)</li>
+                <li>WEBP (8-bit per kanal)</li>
+                <li>TIFF (hingga 48-bit)</li>
+                <li>RAW (12-14 bit, data sensor mentah)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <h3 class="text-xl font-bold mb-3 text-orange-500">Kasus Penggunaan</h3>
+          <p class="text-gray-300">
+            <strong>Web:</strong> JPEG untuk foto, PNG untuk grafik dengan transparansi, WEBP sebagai alternatif modern, SVG untuk ikon dan logo.
+          </p>
+          <div class="mt-4">
+            <div class="bg-gray-800 p-3 rounded">
+              <p class="text-sm text-gray-400"><strong>Pilihan format berdasarkan kebutuhan:</strong></p>
+              <ul class="list-disc pl-5 text-gray-300 mt-2">
+                <li><strong>Fotografi:</strong> JPEG, RAW (pengambilan), HEIF (perangkat modern)</li>
+                <li><strong>Transparansi:</strong> PNG, SVG, WEBP</li>
+                <li><strong>Animasi:</strong> GIF, WEBP (lebih efisien)</li>
+                <li><strong>Editing Profesional:</strong> PSD, TIFF, RAW</li>
+                <li><strong>Grafik Web:</strong> SVG (vektor), PNG (raster)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <h3 class="text-xl font-bold mb-3 text-orange-500">Dukungan Browser</h3>
+          <p class="text-gray-300">
+            <strong>Kompatibilitas:</strong> Format seperti JPEG, PNG, dan GIF memiliki dukungan universal, sementara format yang lebih baru seperti WEBP dan HEIF memiliki dukungan terbatas.
+          </p>
+          <div class="mt-4">
+            <div class="bg-gray-800 p-3 rounded">
+              <p class="text-sm text-gray-400"><strong>Dukungan browser:</strong></p>
+              <ul class="list-disc pl-5 text-gray-300 mt-2">
+                <li><strong>Universal:</strong> JPEG, PNG, GIF</li>
+                <li><strong>Dukungan baik:</strong> SVG, WEBP</li>
+                <li><strong>Dukungan terbatas:</strong> HEIF, AVIF</li>
+                <li><strong>Tidak didukung browser:</strong> PSD, RAW, TIFF, BMP (butuh konversi)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="bg-gray-900 bg-opacity-80 rounded-lg p-8 shadow-xl border border-gray-800 mb-8">
+        <h3 class="text-2xl font-bold mb-4 text-orange-500">Rekomendasi Format Berdasarkan Kebutuhan</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h4 class="text-lg font-semibold text-yellow-400 mb-2">Untuk Web</h4>
+            <ul class="list-disc pl-5 text-gray-300">
+              <li>Foto: WEBP (modern) atau JPEG (kompatibilitas)</li>
+              <li>Grafik dengan transparansi: PNG atau SVG</li>
+              <li>Animasi: WEBP (modern) atau GIF (kompatibilitas)</li>
+              <li>Logo dan ikon: SVG</li>
+            </ul>
+          </div>
+          
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h4 class="text-lg font-semibold text-yellow-400 mb-2">Untuk Fotografi</h4>
+            <ul class="list-disc pl-5 text-gray-300">
+              <li>Pengambilan: RAW (editing maksimal)</li>
+              <li>Penyimpanan: TIFF (arsip), JPEG (sharing)</li>
+              <li>Perangkat modern: HEIF (iOS/macOS)</li>
+              <li>Cetak profesional: TIFF</li>
+            </ul>
+          </div>
+          
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h4 class="text-lg font-semibold text-yellow-400 mb-2">Untuk Desain Grafis</h4>
+            <ul class="list-disc pl-5 text-gray-300">
+              <li>Editing: PSD (Photoshop)</li>
+              <li>Grafik vektor: SVG, AI</li>
+              <li>Print: TIFF, PDF</li>
+              <li>Mockup: PNG (transparansi)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg p-6 shadow-lg border border-gray-700">
+        <h3 class="text-xl font-bold mb-3 text-gradient">Kesimpulan</h3>
+        <p class="text-gray-300 mb-4">
+          Pemilihan format gambar yang tepat bergantung pada kebutuhan spesifik seperti kualitas, ukuran file, transparansi, dan kompatibilitas. Format modern seperti WEBP menawarkan keseimbangan yang baik untuk web, sementara format seperti RAW dan TIFF tetap penting untuk fotografi dan desain profesional.
+        </p>
+        <p class="text-gray-300">
+          Di era digital yang terus berkembang, memahami kelebihan dan keterbatasan masing-masing format gambar memungkinkan kita untuk membuat pilihan yang optimal sesuai dengan kebutuhan proyek.
+        </p>
+      </div>
+    </div>
+  </section>
+  
   <!-- Footer -->
   <footer class="py-6 bg-black">
     <div class="container mx-auto px-6">
