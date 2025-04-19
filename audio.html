@@ -449,6 +449,299 @@
     </div>
   </section>
 
+  <section id="format-comparison" class="py-16 md:py-24 bg-black bg-opacity-80">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 reveal-text">
+        <span class="text-gradient">Analisis Perbandingan Format Audio</span>
+      </h2>
+  
+      <div class="bg-gray-900 bg-opacity-80 rounded-lg p-8 shadow-xl border border-gray-800 mb-12">
+        <p class="text-gray-300 mb-6">
+          Setiap format audio memiliki karakteristik unik yang membuatnya cocok untuk kebutuhan tertentu. Berikut perbandingan mendetail tentang format-format audio yang umum digunakan:
+        </p>
+  
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-gray-800">
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Format</th>
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Kompresi</th>
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Kualitas</th>
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Ukuran File</th>
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Metadata</th>
+                <th class="p-3 text-left text-orange-500 border border-gray-700">Kasus Penggunaan Terbaik</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">MP3</td>
+                <td class="p-3 border border-gray-700">Lossy</td>
+                <td class="p-3 border border-gray-700">Baik</td>
+                <td class="p-3 border border-gray-700">Kecil</td>
+                <td class="p-3 border border-gray-700">ID3 tag</td>
+                <td class="p-3 border border-gray-700">Musik digital umum, streaming</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">WAV</td>
+                <td class="p-3 border border-gray-700">Tidak ada (PCM)</td>
+                <td class="p-3 border border-gray-700">Sangat baik</td>
+                <td class="p-3 border border-gray-700">Sangat besar</td>
+                <td class="p-3 border border-gray-700">BWF (terbatas)</td>
+                <td class="p-3 border border-gray-700">Produksi audio profesional, master rekaman</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">AAC</td>
+                <td class="p-3 border border-gray-700">Lossy</td>
+                <td class="p-3 border border-gray-700">Lebih baik dari MP3</td>
+                <td class="p-3 border border-gray-700">Kecil</td>
+                <td class="p-3 border border-gray-700">Mendukung</td>
+                <td class="p-3 border border-gray-700">iTunes, YouTube, streaming berkualitas tinggi</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">FLAC</td>
+                <td class="p-3 border border-gray-700">Lossless</td>
+                <td class="p-3 border border-gray-700">Sempurna</td>
+                <td class="p-3 border border-gray-700">Sedang</td>
+                <td class="p-3 border border-gray-700">Mendukung</td>
+                <td class="p-3 border border-gray-700">Audiophile, arsip musik berkualitas tinggi</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">OGG</td>
+                <td class="p-3 border border-gray-700">Lossy</td>
+                <td class="p-3 border border-gray-700">Baik</td>
+                <td class="p-3 border border-gray-700">Kecil</td>
+                <td class="p-3 border border-gray-700">Mendukung</td>
+                <td class="p-3 border border-gray-700">Game, konten multimedia open-source</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">WMA</td>
+                <td class="p-3 border border-gray-700">Lossy/Lossless</td>
+                <td class="p-3 border border-gray-700">Baik</td>
+                <td class="p-3 border border-gray-700">Kecil-Sedang</td>
+                <td class="p-3 border border-gray-700">Mendukung</td>
+                <td class="p-3 border border-gray-700">Perangkat dan aplikasi Windows</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">AIFF</td>
+                <td class="p-3 border border-gray-700">Tidak ada (PCM)</td>
+                <td class="p-3 border border-gray-700">Sangat baik</td>
+                <td class="p-3 border border-gray-700">Sangat besar</td>
+                <td class="p-3 border border-gray-700">Mendukung</td>
+                <td class="p-3 border border-gray-700">Produksi musik di macOS, rekaman profesional</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">ALAC</td>
+                <td class="p-3 border border-gray-700">Lossless</td>
+                <td class="p-3 border border-gray-700">Sempurna</td>
+                <td class="p-3 border border-gray-700">Sedang</td>
+                <td class="p-3 border border-gray-700">Mendukung</td>
+                <td class="p-3 border border-gray-700">Ekosistem Apple, musik berkualitas tinggi</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">OPUS</td>
+                <td class="p-3 border border-gray-700">Lossy</td>
+                <td class="p-3 border border-gray-700">Sangat baik</td>
+                <td class="p-3 border border-gray-700">Sangat kecil</td>
+                <td class="p-3 border border-gray-700">Mendukung</td>
+                <td class="p-3 border border-gray-700">Streaming real-time, konferensi voice</td>
+              </tr>
+              <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-3 border border-gray-700 font-medium">AMR</td>
+                <td class="p-3 border border-gray-700">Lossy</td>
+                <td class="p-3 border border-gray-700">Cukup</td>
+                <td class="p-3 border border-gray-700">Sangat kecil</td>
+                <td class="p-3 border border-gray-700">Terbatas</td>
+                <td class="p-3 border border-gray-700">Rekaman suara pada telepon seluler</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+      <!-- Detailed Comparisons -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger mb-12">
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <h3 class="text-xl font-bold mb-3 text-orange-500">Kompresi dan Ukuran File</h3>
+          <p class="text-gray-300">
+            <strong>Lossy vs. Lossless:</strong> Format lossy seperti MP3 dan AAC mengurangi ukuran file dengan menghilangkan data audio yang kurang terdengar, sementara format lossless seperti FLAC dan ALAC mempertahankan semua data audio.
+          </p>
+          <div class="mt-4">
+            <div class="bg-gray-800 p-3 rounded">
+              <p class="text-sm text-gray-400"><strong>Ukuran File (dari kecil ke besar):</strong></p>
+              <ul class="list-disc pl-5 text-gray-300 mt-2">
+                <li>AMR - terkecil (khusus suara)</li>
+                <li>OPUS - sangat kecil</li>
+                <li>MP3/AAC/OGG (lossy) - kecil</li>
+                <li>WMA - kecil hingga sedang</li>
+                <li>FLAC/ALAC (lossless) - sedang</li>
+                <li>WAV/AIFF (tidak terkompresi) - sangat besar</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <h3 class="text-xl font-bold mb-3 text-orange-500">Kualitas dan Sampling</h3>
+          <p class="text-gray-300">
+            <strong>Sampling Rate dan Bit Depth:</strong> Semakin tinggi sampling rate dan bit depth, semakin baik kualitas audio, tetapi ukuran file juga semakin besar.
+          </p>
+          <div class="mt-4">
+            <div class="bg-gray-800 p-3 rounded">
+              <p class="text-sm text-gray-400"><strong>Kualitas (dari rendah ke tinggi):</strong></p>
+              <ul class="list-disc pl-5 text-gray-300 mt-2">
+                <li>AMR (8 kHz, untuk suara manusia)</li>
+                <li>MP3 (hingga 320 kbps)</li>
+                <li>AAC (hingga 320 kbps)</li>
+                <li>OGG/Vorbis (bitrate variabel)</li>
+                <li>OPUS (sangat efisien)</li>
+                <li>WMA (lossless)</li>
+                <li>FLAC/ALAC (lossless)</li>
+                <li>WAV/AIFF (PCM, hingga 192 kHz/32-bit)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <h3 class="text-xl font-bold mb-3 text-orange-500">Kasus Penggunaan</h3>
+          <p class="text-gray-300">
+            <strong>Penggunaan:</strong> Format yang tepat bergantung pada kebutuhan spesifik seperti kualitas, ukuran file, dan kompatibilitas platform.
+          </p>
+          <div class="mt-4">
+            <div class="bg-gray-800 p-3 rounded">
+              <p class="text-sm text-gray-400"><strong>Pilihan format berdasarkan kebutuhan:</strong></p>
+              <ul class="list-disc pl-5 text-gray-300 mt-2">
+                <li><strong>Konsumsi Musik Umum:</strong> MP3, AAC</li>
+                <li><strong>Audiophile/Kolektor:</strong> FLAC, ALAC, WAV</li>
+                <li><strong>Produksi Musik:</strong> WAV, AIFF</li>
+                <li><strong>Streaming Online:</strong> AAC, MP3, OPUS</li>
+                <li><strong>Game & Multimedia:</strong> OGG, MP3</li>
+                <li><strong>Komunikasi Voice:</strong> OPUS, AMR</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <h3 class="text-xl font-bold mb-3 text-orange-500">Dukungan Platform</h3>
+          <p class="text-gray-300">
+            <strong>Kompatibilitas:</strong> Format seperti MP3 memiliki dukungan universal, sementara format lain mungkin spesifik untuk platform atau perangkat tertentu.
+          </p>
+          <div class="mt-4">
+            <div class="bg-gray-800 p-3 rounded">
+              <p class="text-sm text-gray-400"><strong>Dukungan platform:</strong></p>
+              <ul class="list-disc pl-5 text-gray-300 mt-2">
+                <li><strong>Universal:</strong> MP3, WAV</li>
+                <li><strong>Dukungan baik:</strong> AAC, FLAC, OGG</li>
+                <li><strong>Platform Spesifik:</strong> ALAC (Apple), WMA (Windows)</li>
+                <li><strong>Web & Browser:</strong> MP3, AAC, OPUS</li>
+                <li><strong>Seluler:</strong> MP3, AAC, AMR</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Recommendations -->
+      <div class="bg-gray-900 bg-opacity-80 rounded-lg p-8 shadow-xl border border-gray-800 mb-8">
+        <h3 class="text-2xl font-bold mb-4 text-orange-500">Rekomendasi Format Berdasarkan Kebutuhan</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h4 class="text-lg font-semibold text-yellow-400 mb-2">Untuk Konsumsi Musik</h4>
+            <ul class="list-disc pl-5 text-gray-300">
+              <li>Portabilitas: MP3 (320kbps)</li>
+              <li>Kualitas tinggi: AAC (256kbps)</li>
+              <li>Audiophile: FLAC, ALAC</li>
+              <li>Streaming: AAC, OGG</li>
+            </ul>
+          </div>
+          
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h4 class="text-lg font-semibold text-yellow-400 mb-2">Untuk Produksi Audio</h4>
+            <ul class="list-disc pl-5 text-gray-300">
+              <li>Rekaman: WAV (24-bit/48kHz+)</li>
+              <li>Mixing/Mastering: WAV, AIFF</li>
+              <li>Arsip: FLAC</li>
+              <li>Distribusi: MP3, AAC</li>
+            </ul>
+          </div>
+          
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h4 class="text-lg font-semibold text-yellow-400 mb-2">Untuk Aplikasi Spesifik</h4>
+            <ul class="list-disc pl-5 text-gray-300">
+              <li>Game: OGG</li>
+              <li>Voice call: OPUS</li>
+              <li>Rekaman suara mobile: AMR</li>
+              <li>Web audio: MP3, AAC</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Comparison Between Lossy and Lossless -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger mb-12">
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <h3 class="text-xl font-bold mb-3 text-orange-500">Format Lossy</h3>
+          <p class="text-gray-300 mb-4">
+            Format lossy mengurangi ukuran file dengan menghilangkan data audio yang dianggap kurang terdengar oleh telinga manusia. Proses ini dikenal sebagai "perceptual coding."
+          </p>
+          <div class="bg-gray-800 p-3 rounded">
+            <p class="text-sm text-gray-400"><strong>Kelebihan:</strong></p>
+            <ul class="list-disc pl-5 text-gray-300 mt-2">
+              <li>Ukuran file jauh lebih kecil</li>
+              <li>Ideal untuk streaming dan penyimpanan portabel</li>
+              <li>Kompatibilitas sangat luas</li>
+              <li>Kualitas cukup untuk mayoritas pendengar</li>
+            </ul>
+            <p class="text-sm text-gray-400 mt-3"><strong>Contoh format:</strong></p>
+            <ul class="list-disc pl-5 text-gray-300 mt-2">
+              <li>MP3</li>
+              <li>AAC</li>
+              <li>OGG Vorbis</li>
+              <li>OPUS</li>
+              <li>WMA (versi lossy)</li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="bg-gray-900 bg-opacity-80 rounded-lg p-6 shadow-lg card-hover border border-gray-800">
+          <h3 class="text-xl font-bold mb-3 text-orange-500">Format Lossless</h3>
+          <p class="text-gray-300 mb-4">
+            Format lossless mengompresi data audio tanpa kehilangan informasi, memungkinkan pemulihan sempurna dari data audio asli. Ini adalah pilihan untuk audiophile dan produksi profesional.
+          </p>
+          <div class="bg-gray-800 p-3 rounded">
+            <p class="text-sm text-gray-400"><strong>Kelebihan:</strong></p>
+            <ul class="list-disc pl-5 text-gray-300 mt-2">
+              <li>Kualitas audio identik dengan sumber asli</li>
+              <li>Tidak ada degradasi pada multiple encode/decode</li>
+              <li>Ideal untuk arsip dan master rekaman</li>
+              <li>Lebih kecil dari PCM tanpa kompresi (WAV/AIFF)</li>
+            </ul>
+            <p class="text-sm text-gray-400 mt-3"><strong>Contoh format:</strong></p>
+            <ul class="list-disc pl-5 text-gray-300 mt-2">
+              <li>FLAC</li>
+              <li>ALAC (Apple Lossless)</li>
+              <li>WMA Lossless</li>
+              <li>APE (Monkey's Audio)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Conclusion -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg p-6 shadow-lg border border-gray-700">
+        <h3 class="text-xl font-bold mb-3 text-gradient">Kesimpulan</h3>
+        <p class="text-gray-300 mb-4">
+          Pemilihan format audio yang tepat bergantung pada kebutuhan spesifik seperti kualitas, ukuran file, dan kompatibilitas dengan perangkat target. Format lossy seperti MP3 dan AAC ideal untuk penggunaan sehari-hari, sementara format lossless seperti FLAC dan WAV penting untuk produksi profesional dan penggemar audio kualitas tinggi.
+        </p>
+        <p class="text-gray-300">
+          Perkembangan teknologi terus menghadirkan format baru seperti OPUS yang menawarkan efisiensi lebih baik. Memahami kelebihan dan keterbatasan masing-masing format memungkinkan pengambilan keputusan yang tepat sesuai kebutuhan proyek multimedia Anda.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
 <footer class="py-6 bg-black">
   <div class="container mx-auto px-6">
